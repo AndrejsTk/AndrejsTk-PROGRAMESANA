@@ -1,3 +1,9 @@
-a:hover {
-  background-color: yellow;
+p {
+color: red;	
+font-size: 18px;
+font-family: Times New Roman;
+}
+
+body{
+background-color: #86F5EE;	
 }
