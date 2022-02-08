@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+<script>
+
+  let fNum = +prompt("Первый аргумент: ") ,
+  sNum = +prompt("Второй аргумент: ") ,
+  tNum = +prompt("Третий аргумент: ");
+
+  if (isNaN(fNum) || isNaN(sNum) || isNaN(tNum)) {
+  alert("Один из аргументов не число");
+  } else {
+  let discriminant = sNum ** 2 - 4 * fNum * tNum;
+
+  if (discriminant > 0) {
+  let fRoot = (-sNum + Math.sqrt(discriminant)) / (2 * fNum) ,
+  sRoot = (-sNum - Math.sqrt(discriminant)) / (2 * fNum);
+
+  alert(`Дискриминант: ${discriminant}`);
+  alert(`Корни:\tx1 = ${fRoot}\n\t\tx2 = ${sRoot}`);
+  } else if (discriminant == 0) {
+  let root = -sNum / 2 * fNum;
+
+  alert(`Дискриминант: ${discriminant}`);
+  alert(`Корень:\tx = ${fRoot}`);
+  } else {
+  alert(`Дискриминант: ${discriminant}`);
+  alert("Уравнение не имеет корней");
+  }
+  }
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+</body>
+</html>
