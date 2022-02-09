@@ -1,0 +1,162 @@
+<!DOCTYPE html> 
+
+<html> 
+
+	<head> 
+
+<title>Document</title> 
+
+<meta charset="UTF-8"> 
+
+	</head> 
+
+  
+
+	<body> 
+
+<script>
+
+function random(){
+
+var rand;
+
+rand = Math.random()*10;
+
+alert(rand);
+
+}
+
+
+
+
+
+
+
+function main(){
+
+var a = prompt("Kādā šodien ir diena?", '1');
+
+a=a%7;
+if (a==0){
+alert("Svetdiena");
+}
+
+switch (a) {
+case 1:
+alert("Pirmdiena"); 
+break;
+
+case 2:
+alert("Otrdiena"); 
+break;
+
+case 3:
+alert("Trešdiena"); 
+break;
+
+case 4:
+alert("Ceturdiena"); 
+break;
+
+case 5:
+alert("Piektdiena"); 
+break;
+
+case 6:
+alert("Sestdiena"); 
+break;
+
+case 7:
+alert("Svetdiena"); 
+break;
+}
+
+}
+
+
+/*function main(){
+
+
+var a = prompt("Kādā šodien ir diena?", '1');
+
+switch (a) {
+case "1":
+alert("Pirmdiena"); 
+break;
+
+case "2":
+alert("Otrdiena"); 
+break;
+
+case "3":
+alert("Trešdiena"); 
+break;
+
+case "4":
+alert("Ceturdiena"); 
+break;
+
+case "5":
+alert("Piektdiena");  
+break;
+
+case "6":
+alert("Sestdiena"); 
+break;
+
+case "7":
+alert("Svetdiena"); 
+break;
+}
+}
+*/
+
+
+
+
+
+/*function main(){
+
+
+var a = prompt("Kādā šodien ir diena? Ievadi dienas nosaukumu.", 'Pirmdiena');
+
+switch (a) {
+case "Pirmdiena":
+alert("1"); 
+break;
+
+case "Otrdiena":
+alert("2"); 
+break;
+
+case "Trešdiena":
+alert("3"); 
+break;
+
+case "Ceturdiena":
+alert("4"); 
+break;
+
+case "Piektdiena":
+alert("5");  
+break;
+
+case "Sestdiena":
+alert("6"); 
+break;
+
+case "Svetdiena":
+alert("7"); 
+break;
+}
+
+
+}*/
+</script>
+
+<button onclick="main();">Diena</button>
+<button onclick="random();">Laimiga diena</button>
+
+	</body> 
+
+</html> 
