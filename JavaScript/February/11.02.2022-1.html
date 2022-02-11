@@ -1,0 +1,70 @@
+<!DOCTYPE html> 
+
+<html> 
+
+	<head> 
+
+
+	</head> 
+
+
+	<body style="background-color: #FAD7A0 ;">
+	
+
+<div id="txt" align="center" style="font-size: 22px"></div>
+
+<body onload="startTime()">
+
+<script>
+
+function startTime() {
+  const today = new Date();
+  let h = today.getHours();
+  let m = today.getMinutes();
+  let s = today.getSeconds();
+  m = checkTime(m);
+  s = checkTime(s);
+  document.getElementById('txt').innerHTML =  "0" + h + ":" + m + ":" + s;
+  setTimeout(startTime, 1000);
+}
+
+function checkTime(i) {
+  if (i < 10) {i = "0" + i}; 
+  return i;
+}
+
+</script>
+
+
+<p id="demo" align="center" style="font-size: 18px"></p>
+
+
+<p id="demo" align="center" style="font-size: 18px">
+<script>
+
+
+Data = new Date();
+Year = Data.getFullYear();
+Month = Data.getMonth();
+Day = Data.getDate();
+
+fMonth = ['janvāris','februāris','marts','aprīlis','maijs','jūnijs','jūlijs','augusts','septembris','oktobris','novembris','decembris'];
+
+document.write("Šodien ir " + Day + "." + " " + fMonth[Month] + " " + Year + "." + " gads");
+
+const weekday = ["Šodien ir svētdiena(7)","Šodien ir pirmdiena(1)","Šodien ir otrdiebna(2)","Šodien ir trešdiena(3)","Šodien ir ceturdiena(4)","Šodien ir piektdiena(5)","Šodien ir sestdiena(6)"];
+
+const d = new Date();
+let day = weekday[d.getDay()];
+document.getElementById("demo").innerHTML = day;
+
+
+</script>
+
+
+</p>
+	
+	
+	</body> 
+
+</html> 
