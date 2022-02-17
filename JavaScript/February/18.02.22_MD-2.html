@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+<script>
+
+  function main() {
+      var a;
+      var b;
+      var c;
+
+      b = window.prompt('Enter a value for b');
+      c = Math.abs(b) * 2 + 1;
+      for (a = c; a >= 0; a--) {
+          window.alert(a);
+          window.alert(Math.pow(b, 2));
+          b = b + 1;
+      }
+      window.alert("End");
+  }
+
+
+
+
+</script>
+
+<button onclick="main();">Try it!</button>
+
+</body>
+</html>

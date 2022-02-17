@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="&#1040;&#1085;&#1076;&#1088;&#1077;&#1081;"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2022-02-17 11:21:33 "/>
+        <attribute name="created" value="0JDQvdC00YDQtdC5O01TSS1HRjYzLVRISU47MjAyMi0wMi0xNzsiMTE6MDU6MDQgIjs4NTA1"/>
+        <attribute name="edited" value="0JDQvdC00YDQtdC5O01TSS1HRjYzLVRISU47MjAyMi0wMi0xNzsiMTE6MjE6MzMgIjsxOzg2MTM="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="a" type="Integer" array="False" size=""/>
+            <declare name="b" type="Integer" array="False" size=""/>
+            <declare name="c" type="Integer" array="False" size=""/>
+            <input variable="b"/>
+            <assign variable="c" expression="(abs(b)*2)+1"/>
+            <for variable="a" start="c" end="0" direction="dec" step="1">
+                <breakpoint/>
+                <output expression="a" newline="True"/>
+                <output expression="b^2" newline="True"/>
+                <assign variable="b" expression="b+1"/>
+            </for>
+            <output expression="&quot;End&quot;" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
