@@ -17,10 +17,10 @@
 
       b = window.prompt('Enter a value for b');
       c = Math.abs(b) * 2 + 1;
-      for (a = c; a >= 0; a--) {
-          window.alert(a);
+      for (a = c; a > 0; a--) {
+          /*window.alert(a);*/
           window.alert(Math.pow(b, 2));
-          b = b + 1;
+          b++;
       }
       window.alert("End");
   }

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+
+<script>
+
+function main() {
+
+var z;
+var i;
+
+z = 1*prompt("Enter a value for z");
+
+if (z > 0) {
+z= -1*z;
+}
+
+for (i = - 2 * z + 1; i >= 1; i--) {
+document.write(Math.pow(z, 2) + " ");
+z=z+1;
+}
+
+}
+
+
+
+</script>
+
+<button onclick="main();">Try it!</button>
+
+
+</body>
+</html>
