@@ -1,0 +1,38 @@
+<!DOCTYPE html> 
+
+<html> 
+
+	<head> 
+<meta charset="UTF-8"> 
+	
+
+	
+<script> 
+function abc() {
+var x;
+x = Math.floor(Math.random() * 2);
+if (x == 1){
+document.getElementById("pix").src = "sad.png";
+} 
+if (x == 0){
+document.getElementById("pix").src = "smile.png";
+}
+document.getElementById("n").innerHTML=x;
+}
+
+</script>
+</head> 
+<body>
+<img id="pix" src="start.jpg" style="width:200px; height:200px">
+<p id="n">number</p>
+
+<button onclick="abc();">Kāda man būs diena?</button>
+
+
+
+
+	</body> 
+
+
+
+</html> 
