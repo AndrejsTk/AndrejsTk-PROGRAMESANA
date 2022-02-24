@@ -1,17 +1,17 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 
-<html> 
+<html>
 
-	<head> 
-<meta charset="UTF-8"> 
-	
+	<head>
+<meta charset="UTF-8">
 
-	
-<script> 
+
+
+<script>
 
 var i;
-var st; 
-var en; 
+var st;
+var en;
 var korzina;
 
 function main() {
@@ -21,32 +21,21 @@ en = prompt("Ievadiet beigu skaitli");
 
 korzina = 0;
 
-for (i = st; i<= en; i++)
+for (i = st; i <= en; i++)
 if (i%3==0) {
-korzina = korzina + 1; 
-alert(korzina);
+korzina = korzina + 1;
+alert("Ir atrasts(-i) " + korzina + " skaitlis(-i), kas dalas uz 3 bez atlikuma");
 }
-
-
-
 }
-
-
 </script>
-
-</head> 
-
-
-
+</head>
 
 <body>
 
+<button onclick="main();">Try it!</button>
+
+</body>
 
 
 
-
-	</body> 
-
-
-
-</html> 
+</html>
