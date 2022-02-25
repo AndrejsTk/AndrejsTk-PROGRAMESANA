@@ -1,0 +1,45 @@
+<!DOCTYPE html> 
+<html> 
+
+	<head> 
+
+<script>
+
+function main() {
+    var a;
+    var z;
+    var i;
+    var kop1;
+    var kop2;
+	var sum;
+    
+    kop1 = 0;
+    kop2 = 0;
+    a = prompt('Enter a value for a');
+    z = prompt('Enter a value for z');
+    for (i = a; i <= z; i++) {
+        if (i % 2 == 0) {
+            kop1 = kop1 + 1;
+			sum = kop1;
+        } else {
+            kop2 = kop2 + 1;
+			sum = kop2;
+        }
+    }
+    alert(kop1 + " pāru skaitļu");
+    alert(kop2 + " nepāru skaitļu");
+}
+
+
+</script>
+
+
+	</head> 
+	
+	<body>
+	
+	<button onclick="main();";>Try</button>
+	
+	</body> 
+
+</html> 
