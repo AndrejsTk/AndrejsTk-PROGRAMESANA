@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="UTF-8">
+
+<script>
+
+function main() {
+    var n;
+    var x;
+    var k;
+
+    k = 0;
+    var d;
+    
+    d = 0;
+    n = 1*(prompt('Ievadiet galīgu summu centos'));
+    x = 1*(prompt('Ievadiet, cik jūs palikat naudu centos'));
+    while (k < n) {
+        k = k + x;
+        x = x * 2;
+        d++;
+    }
+    alert(k);
+    alert(d-1);
+}
+
+
+</script>
+
+
+
+</head>
+
+
+<body>
+
+<button onclick="main();">Try</button>
+
+
+</body>
+
+</html>
