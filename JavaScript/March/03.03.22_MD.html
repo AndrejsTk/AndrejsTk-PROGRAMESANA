@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+
+</head>
+<body>
+
+<h2>Saskaitit ciparu summu ievadito skaitli.</h2>
+
+<script>
+
+  function main() {
+
+    var nums = prompt("Ievadiet skaitli", "");
+    var length = nums.length;
+    nums = Number(nums);
+
+    var st = 0;
+    var res = 0;
+
+    for (var i = 0; i < length; i++) {
+      st = nums % 10;
+      res += st;
+      nums = parseInt(nums /10);
+    }
+    alert("Ciparu summa saja skaitli ir: " + res);
+}
+</script>
+
+<button onclick="main();">TRY</button>
+
+</body>
+</html>
