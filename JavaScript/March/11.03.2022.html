@@ -1,23 +1,23 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 
-<html> 
-	<head> 
-	
+<html>
+	<head>
+
 <script>
-	
+
 var a;
 var b;
-var i;
-var ja;
-var ne;
-var nav;
-ja = " ";
-ne = " ";
-nav = " ";
-i = 0;
-var procja;
-var procnav;
-var procne;
+var i = 0;
+var ja = " ";
+var ne = " ";
+var nav = " ";
+var procja = 0;
+var procnav = 0;
+var procne = 0;
+var res = 0;
+var ja2 = 0;
+var ne2 = 0;
+var nav2 = 0;
 
 	function main() {
 
@@ -28,44 +28,48 @@ b = 1*(prompt("Vai jums nepieciešams ierīkot velo celiņu? 1 - jā, 0 - nav m�
 
 if (b==1) {
 ja += "+";
+ja2++;
 }
 if (b==0) {
 nav += "+";
+nav2++;
 }
 if (b==-1) {
 ne += "+";
+ne2++;
 }
-document.getElementById("atb").innerHTML=ja;
-document.getElementById("atb2").innerHTML=nav;
-document.getElementById("atb3").innerHTML=ne;
+document.getElementById("atb").innerHTML="Pozitīvas atbildes: " + ja;
+document.getElementById("atb2").innerHTML="Neitralas atbildes: " + nav;
+document.getElementById("atb3").innerHTML="Negatīvas atbildes: " + ne;
 i++
 }
 
-procja = 
-procnav = 
-procne = 
+res = ja2 + nav2 + ne2;
+//alert(res + "result");
+procja = ja2/res*100 + "%";
+procnav = nav2/res*100 + "%";
+procne = ne2/res*100 + "%";
 
-/*alert(i);
-alert("jā  " + ja);
-alert("nav  " + nav);
-alert("ne  " + ne);*/
 
-}
+document.getElementById("proc1").innerHTML=procja;
+document.getElementById("proc2").innerHTML=procne;
+document.getElementById("proc3").innerHTML=procnav;
 
+		}
 
 </script>
 
-	</head> 
+	</head>
 
 
 	<body>
-	
-<p id="atb">Pozitīvas atbildes: </p>
-<p id="atb2">Neitralas atbildes: </p>
-<p id="atb3">Negatīvas atbildes: </p>
-	
-<button onclick="main();">Sākt aptauju.</button>
-	
-	</body> 
 
-</html> 
+<p id="atb"></p> <p id="proc1"></p>
+<p id="atb2"></p> <p id="proc2"></p>
+<p id="atb3"></p> <p id="proc3"></p>
+
+<button onclick="main();">Sākt aptauju.</button>
+
+	</body>
+
+</html>
