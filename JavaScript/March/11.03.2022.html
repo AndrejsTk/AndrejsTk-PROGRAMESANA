@@ -1,0 +1,71 @@
+<!DOCTYPE html> 
+
+<html> 
+	<head> 
+	
+<script>
+	
+var a;
+var b;
+var i;
+var ja;
+var ne;
+var nav;
+ja = " ";
+ne = " ";
+nav = " ";
+i = 0;
+var procja;
+var procnav;
+var procne;
+
+	function main() {
+
+a = prompt("Cik respondentu būs aptaujā? Ievadiet skaitli.", "1");
+
+while (a>i) {
+b = 1*(prompt("Vai jums nepieciešams ierīkot velo celiņu? 1 - jā, 0 - nav mājas, -1 - nē.", "1"));
+
+if (b==1) {
+ja += "+";
+}
+if (b==0) {
+nav += "+";
+}
+if (b==-1) {
+ne += "+";
+}
+document.getElementById("atb").innerHTML=ja;
+document.getElementById("atb2").innerHTML=nav;
+document.getElementById("atb3").innerHTML=ne;
+i++
+}
+
+procja = 
+procnav = 
+procne = 
+
+/*alert(i);
+alert("jā  " + ja);
+alert("nav  " + nav);
+alert("ne  " + ne);*/
+
+}
+
+
+</script>
+
+	</head> 
+
+
+	<body>
+	
+<p id="atb">Pozitīvas atbildes: </p>
+<p id="atb2">Neitralas atbildes: </p>
+<p id="atb3">Negatīvas atbildes: </p>
+	
+<button onclick="main();">Sākt aptauju.</button>
+	
+	</body> 
+
+</html> 
