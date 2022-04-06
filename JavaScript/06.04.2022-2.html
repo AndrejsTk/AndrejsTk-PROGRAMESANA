@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+</head>
+
+<body>
+<script>
+
+var r;
+var g;
+var b;
+
+function fred(){
+r = document.getElementById("fred").value;
+console.log(r);
+}
+
+function fgreen(){
+g = document.getElementById("fgreen").value;
+console.log(g);
+}
+
+function fblue(){
+b = document.getElementById("fb").value;
+console.log(b);
+}
+
+
+function fons(){
+let cl = 'rgb('+r+',' +g+', '+b+')';
+document.body.style.backgroundColor=cl;
+}
+
+
+</script>
+
+<input type="range" min="0" max="255" id="fred">
+<input type="range" min="0" max="255" id="fgreen">
+<input type="range" min="0" max="255" id="fblue">
+<input type="range" min="0" max="255" id="fons">
+
+</body>
+</html>
