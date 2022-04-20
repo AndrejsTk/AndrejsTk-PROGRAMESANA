@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <script>
+  function mn() {
+x1 = document.getElementById("x").value;
+console.log(x1);
+
+}
+
+function mb() {
+
+y1 = document.getElementById("y").value;
+console.log(y1);
+
+}
+  
+  </script>
+  
+  
+</head>
+
+<body>
+
+
+
+<script>
+var a=" ";
+var c;
+
+function dh() {
+
+c = document.getElementById("d").value;
+a=a+"<p>Position:"+c+"</p>";
+document.getElementById("izvade").innerHTML=a;
+}
+</script>
+
+<input type="range" min="0" max="255" value="0" id="d" onchange="dh();">
+
+<div id="izvade">Position:</div>
+
+
+
+
+
+
+
+
+
+
+<canvas id="myCanvas" width="300" height="300" style="border:1px solid #c3c3c3;"></canvas>  
+<script>  
+
+var x1;
+var y1;
+var x2 = 0;
+var y2 = 0;
+
+var c = document.getElementById("myCanvas");  
+var ctx = c.getContext("2d")
+x2 = document.getElementById("x1").value; 
+y2 = document.getElementById("y1").value; 
+ctx.fillStyle = "#FF0000";  
+ctx.fillRect(x2,y2,100,100);  
+ 
+
+
+
+
+
+</script> 
+
+<input type="range" min="0" max="300" value="0" id="x" onchange="mn();">
+
+<input type="range" min="0" max="300" value="0" id="y" onchange="mb();">
+
+
+</body>
+</html>
