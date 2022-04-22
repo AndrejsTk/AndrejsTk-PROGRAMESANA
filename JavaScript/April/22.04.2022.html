@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Document</title>
+</head>
+<body>
+
+
+<script>
+
+var ask;
+var i;
+var x = 0;
+var y = 0;
+var rast = 0;
+var kolvrast = 0;
+
+
+function main() {
+
+ask = 1*(prompt("Ievadiet kvadratu skaitu."));
+console.log(ask);
+
+
+for(i=1; i <= ask; i++){
+
+kolvrast = ask+1;
+console.log(kolvrast);
+rast = (400-ask*50)/kolvrast
+console.log(rast);
+
+
+
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+ctx.beginPath();
+ctx.rect(x, y, 50, 50);
+ctx.stroke();
+ctx.fillStyle = "#FF0000"; 
+ctx.fill();
+
+x=x+rast;
+//y=y+20;
+
+}
+
+
+
+
+
+}
+
+
+
+</script>
+
+<canvas id="myCanvas" width="400" height="400" style="border:1px solid #c3c3c3;"></canvas>  
+
+<script>
+
+/*function gm() {
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+ctx.beginPath();
+ctx.rect(0, 0, 100, 100);
+ctx.stroke();
+ctx.fillStyle = "#FF0000"; 
+ctx.fill();
+}*/
+</script>
+<button onclick="main();">START</button>
+
+</body>
+</html>
