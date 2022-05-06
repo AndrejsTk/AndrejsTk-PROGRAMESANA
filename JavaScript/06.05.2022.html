@@ -1,0 +1,72 @@
+<!DOCTYPE html> 
+<html> 
+
+	<head> 
+
+<script>
+
+var a=0;
+var b=0;
+var c=0;
+var m=0;
+
+function mmm(xmm){
+m=xmm/1000;
+return m;
+}
+function cmm(xcm){
+m=xcm/100;
+return m;
+}
+
+function st1(a,b) {
+c = a*b;
+return c;
+
+}
+
+function apr(){
+a = parseFloat(document.getELmentById("a1").value);
+b = parseFloat(document.getELmentById("b1").value);
+st1(a,b);
+alert(c);
+}
+
+function mk(){
+a = parseFloat(document.getELmentById("a1").value);
+mmm(a);
+alert(m);
+
+}
+</script>
+
+	</head> 
+	
+	<body>
+	
+	<input type="text" id="a1"></input>
+	
+	<input type="text" id="b1"></input>
+	
+	<input type="button" id="g" value="SUBMIT" onclick="apr"></input>
+	
+	<div>
+      <input type="radio" id="ad1" value="mm">
+      <label for="mm">mm</label>
+    </div>
+		<div>
+      <input type="radio" id="ad2" value="cm">
+      <label for="cm">cm</label>
+    </div>
+		<div>
+      <input type="radio" id="ad3" value="m">
+      <label for="m">m</label>
+    </div>
+	
+	
+	<button onclick="mk">mm-m</button>
+	
+	
+	</body> 
+
+</html> 
