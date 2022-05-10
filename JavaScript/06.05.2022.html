@@ -7,56 +7,84 @@
 
 var a=0;
 var b=0;
-var c=0;
+var s=0;
 var m=0;
+var ymm = " ";
+var ycm = " ";
+var xm=0;
 
-function mmm(xmm){
-m=xmm/1000;
-return m;
+function mm(){
+
+
+//m=xmm/1000;
+
 }
-function cmm(xcm){
+/*function cm(){
+ycm = document.getElementById("t3").value;
+
 m=xcm/100;
-return m;
-}
+alert(ycm);
+}*/
 
 function st1(a,b) {
-c = a*b;
-return c;
-
+s = a*b;
+return s;
 }
 
 function apr(){
-a = parseFloat(document.getELmentById("a1").value);
-b = parseFloat(document.getELmentById("b1").value);
+a = parseFloat(document.getElementById("t1").value);
+b = parseFloat(document.getElementById("t2").value);
 st1(a,b);
-alert(c);
+//alert(s);
+ymm = prompt("mm / cm", "mm");
+if (ymm == mm) {
+a = a/1000;
+b = b/1000;
+
+alert(a);
+alert(b);
 }
 
-function mk(){
+
+//ymm = document.getElementById("t3").innerHTML = ymm;
+//alert(ymm);
+}
+
+
+/*function mk(){
 a = parseFloat(document.getELmentById("a1").value);
 mmm(a);
 alert(m);
 
-}
+}*/
 </script>
 
 	</head> 
 	
+	
+	
+	
 	<body>
 	
-	<input type="text" id="a1"></input>
+	<input type="text" id="t1"></input>
 	
-	<input type="text" id="b1"></input>
+	<input type="text" id="t2"></input>
 	
-	<input type="button" id="g" value="SUBMIT" onclick="apr"></input>
+	<input type="text" id="t3" value="cm"></input>
 	
-	<div>
-      <input type="radio" id="ad1" value="mm">
-      <label for="mm">mm</label>
+	<input type="button" id="g" value="SUBMIT" onclick="apr()"></input>
+	
+	
+	
+	
+	
+<!--	<div>
+      <input type="radio" id="xmm" name="lk1" value="mm">
+      <label for="mm" onclick="mmm(xmm)">mm</label>
     </div>
 		<div>
-      <input type="radio" id="ad2" value="cm">
-      <label for="cm">cm</label>
+      <input type="radio" id="xcm" name="lk2" value="cm">
+      <label for="cm" onclick="cmm(xcm)">cm</label>
     </div>
 		<div>
       <input type="radio" id="ad3" value="m">
@@ -64,7 +92,7 @@ alert(m);
     </div>
 	
 	
-	<button onclick="mk">mm-m</button>
+	<button onclick="mk">mm-m</button>-->
 	
 	
 	</body> 
