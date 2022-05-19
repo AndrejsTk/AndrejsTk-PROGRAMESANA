@@ -1,0 +1,151 @@
+<!DOCTYPE html> 
+<html> 
+
+	<head> 
+
+<script>
+
+var a=0;
+var b=0;
+var s=0;
+
+
+	function st1(a,b) {
+s = a*b;
+return s;
+}
+
+	function apr(){
+a = parseFloat(document.getElementById("t1").value);
+b = parseFloat(document.getElementById("t2").value);
+st1(a,b);
+}
+
+
+	function gv(radio) {
+a = a/1000;
+document.getElementById("id1").innerHTML = "Pirma puse = " + a*1000 + " mm → " + a + " m";
+}
+
+	function gv2(radio) {
+a = a/100;
+document.getElementById("id1").innerHTML = "Pirma puse = " + a*100 + " cm → " + a + " m";
+}
+
+	function gv3(radio) {
+a = a*1000;
+document.getElementById("id1").innerHTML = "Pirma puse = " + a/1000 + " km → " + a + " m";
+}
+
+	function gv4(radio) {
+b = b/1000;
+document.getElementById("id2").innerHTML = "Otra puse = " + b*1000 + " mm → " + b + " m";
+}
+
+	function gv5(radio) {
+b = b/100;
+document.getElementById("id2").innerHTML = "Otra puse = " + b*100 + " cm → " + b + " m";
+}
+
+	function gv6(radio) {
+b = b*1000;
+document.getElementById("id2").innerHTML = "Otra puse = " + b/1000 + " km → " + b + " m";
+}
+
+
+
+
+
+	function ht(radio){
+s = a*b;
+s = s/1000
+document.getElementById("id3").innerHTML = "Laukums = " + s*1000 + " m → " + s + " mm";
+}
+
+	function ht2(radio){
+s = a*b;
+s = s/100
+document.getElementById("id3").innerHTML = "Laukums = " + s*100 + " m → " + s + " cm";
+}
+
+	function ht3(radio){
+s = a*b;
+document.getElementById("id3").innerHTML = "Laukums = " + s + " m";
+}
+
+	function ht4(radio){
+s = a*b;
+s = s*1000
+
+document.getElementById("id3").innerHTML = "Laukums = " + s/1000 + " m → " + s + " km";
+}
+
+</script>
+
+	</head> 
+	
+	
+	<body>
+	
+	<input type="text" id="t1"></input>
+	
+	<input type="button" id="g" value="SUBMIT" onclick="apr()"></input>
+	
+<div>	
+	
+		<input type="radio" id="mail" name="contact" value="mm" onchange="gv(this)">
+        <label for="mail">mm</label>
+	
+		
+		<input type="radio" id="mail" name="contact" value="m" onchange="gv2(this)">
+        <label for="mail">cm</label>
+	
+	
+		<input type="radio" id="mail" name="contact" value="km" onchange="gv3(this)">
+        <label for="mail">km</label>
+		
+</div>
+
+	<input type="text" id="t2"></input>
+
+<div>
+		
+		<input type="radio" id="mail" name="contact" value="mm" onchange="gv4(this)">
+        <label for="mail">mm</label>
+	
+		
+		<input type="radio" id="mail" name="contact" value="m" onchange="gv5(this)">
+        <label for="mail">cm</label>
+	
+	
+		<input type="radio" id="mail" name="contact" value="km" onchange="gv6(this)">
+        <label for="mail">km</label>
+</div>
+
+<p id="id1">Pirma puse:</p>
+<p id="id2">Otra puse:</p>
+
+</br>
+
+<div> Saskaitīt laukumu: 
+</br>
+		
+		<input type="radio" id="mail" name="contact" value="mm" onchange="ht(this)">
+        <label for="mail">mm</label>
+		
+		<input type="radio" id="mail" name="contact" value="cm" onchange="ht2(this)">
+        <label for="mail">cm</label>
+	
+		<input type="radio" id="mail" name="contact" value="m" onchange="ht3(this)">
+        <label for="mail">m</label>
+	
+		<input type="radio" id="mail" name="contact" value="km" onchange="ht4(this)">
+        <label for="mail">km</label>
+</div>
+
+<p id="id3">Laukums = </p>
+	
+	
+	</body> 
+
+</html> 
