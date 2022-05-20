@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>SimryCode</title>
+<meta charset="utf8"/>
+<style>
+body {
+    background-color:#FDEBD0;
+    font-family: "Verdana";}
+		</style>
+</head>
+<body>
+<h2>Taimeris</h2>
+<p> <button onclick="taimeris()">
+Sākt
+</button>
+<button onclick="stop()">
+Beigt
+</button>
+</p>
+<p id = "izvade">...</p>
+<p>
+<canvas id="sekundes" width="400" height="30"
+   style="border:1px solid black;
+          background-color: Gainsboro;">
+</canvas>
+</p>
+<script>
+var laiks = -1;
+var n, i, izpildit;
+var no = 30;
+var s = sekundes.getContext("2d");
+s.clearRect(0, 0, 400, 30);
+function taimeris() {
+  laiks = no;
+  n = 400 / laiks;
+  s.clearRect(0, 0, 400, 30);
+  zimeet(20);
+  izpildit = setInterval(function() {
+    if (laiks > 0) {
+      laiks = laiks - 1;
+    }
+    zimeet(laiks);
+    if (laiks == 0) {
+       clearInterval(izpildit);
+    }
+  }, 1000);
+}
+function stop(){
+  clearInterval(izpildit);
+}
+function zimeet(cik) {
+  izvade.innerHTML = laiks; 
+  s.clearRect(0, 0, 400, 30);
+  s.fillRect(0, 0, n * laiks, 30);
+  }
+		</script>
+</body>
+</html>
