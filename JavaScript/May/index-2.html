@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+</head>
+<body>
+<style>
+ body {
+    background: lightblue; 
+	
+	}
+	</style>
+<script>
+
+var ab, cuk = 0;
+var abcena = 0;
+var cukcena = 0;
+var summa = 0;
+function main() {
+ab = 1*(prompt("Cik kg abolus Jums vajag?"));
+cuk = 1*(prompt("Cik kg cukura Jums vajag?"));
+abcena = 1*(prompt("Ievadiet abolu cenu par vienukg", "2"));
+cukcena = 1*(prompt("Ievadiet cukuru cenu par vienu kg", "3"));
+ab = ab * abcena;
+//console.log(ab);
+cuk = cuk * cukcena;
+//console.log(cuk);
+summa = ab + cuk;
+document.getElementById("atb").innerHTML = "Ievarijumu izmaksa: " + summa + " euro";
+}
+
+</script>
+
+<button onclick="main();">Apreķīnat ievarijuma izmaksas</button>
+
+<p id="atb">Ievarijumu izmaksa: </p>
+
+</br>
+<a href="index-2.html">Pāriet no 2.lapas uz titullapu</a>
+</br>
+<a href="index-2.html">Pāriet no 2.lapas uz 3.lapu</a>
+</body>
+</html>

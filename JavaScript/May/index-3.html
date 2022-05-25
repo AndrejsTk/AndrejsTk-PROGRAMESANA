@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+</head>
+<body>
+
+<style>
+ body {
+    background: lightgreen; 
+	
+	}
+	</style>
+	
+<script>
+var sk = 0;
+var apdr = " ";
+var pieg = " ";
+var summa = 0;
+apdrcena = 0;
+piegcena = 0;
+
+
+function pasuti_tkreklus() {
+sk = 1*(prompt("Cik T-kreklus Jums vajag?"));
+apdr = prompt("Kāda apdruka Jums vajag? (text | zime | foto) (teksts = 5 EUR, zime = 7 EUR, foto = 20 EUR)", "teksts");
+pieg = prompt("Vai Jums nepieciešama piegade? (Jā + | Nē -)", "+");
+if (pieg == "+") {
+	if (apdr == "teksts") {
+	apdrcena = 5;
+	}
+	if (apdr == "zime") {
+	apdrcena = 7;
+	}
+	if (apdr == "foto") {
+	apdrcena = 20;
+	}
+summa = sk * apdrcena;
+if (summa < 50) {
+piegcena = 15;
+}
+if (summa > 50) {
+piegcena = 0;
+}
+summa = sk * apdrcena + piegcena;
+alert(summa + " EUR ar piegadi");
+}
+if (pieg == "-") {
+	if (apdr == "teksts") {
+	apdrcena = 5;
+	}
+	if (apdr == "zime") {
+	apdrcena = 7;
+	}
+	if (apdr == "foto") {
+	apdrcena = 20;
+	}
+summa = sk * apdrcena;
+alert(summa + " EUR bez piegades");
+}
+if (summa > 100) {
+summa = summa - (0.05 * summa);
+alert(summa + " EUR ar 5% atlaidi");
+}
+
+
+
+
+}
+
+</script>
+
+<button onclick="pasuti_tkreklus();">T-krekla pasūtīšana</button>
+
+</br>
+</br>
+<a href="index-2.html">Pāriet no 3.lapas uz 2.lapu</a>
+</br>
+<a href="index.html">Pāriet no 3.lapas uz titullapu</a>
+
+</body>
