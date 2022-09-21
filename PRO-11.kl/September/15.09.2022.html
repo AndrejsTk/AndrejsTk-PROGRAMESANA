@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+
+<body>
+  <style>
+        a.rollover {
+    background: url(1.png); 
+    display: block;
+    width: 220px;
+    height: 220px;
+   }
+        a.rollover:hover {
+    background: url(2.png);
+      }
+  </style>
+
+<p align="center">
+  <button type="button">Button</button>
+  <input value="Input"></input>
+</br>
+</br>
+  <a align="center">CSS method:</a>
+  <a href="" class="rollover"> </a></br>
+  <a align="center">JavaScript method:</a></br>
+  <img onmouseover = "pic1()" onmouseout= "pic2()" id="img" src="3.png" width="220" height="220">
+</p> 
+
+<p align="center">
+  <input type="number" value="Input" ></input>
+</p>
+
+  <script>
+    function pic1() {
+   document.getElementById("img").src = "4.png";
+   }
+    function pic2(){
+   document.getElementById("img").src = "3.png";
+   }
+  </script>
+
+</body>
+
+</html>
