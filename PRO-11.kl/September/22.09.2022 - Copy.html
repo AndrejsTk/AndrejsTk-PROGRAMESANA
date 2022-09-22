@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+
+    <style>
+        .slidecontainer {
+          width: 400px;
+        }
+        
+        .slider {
+          -webkit-appearance: none;
+          width: 400px;
+          height: 25px;
+          background: #d3d3d3;
+          outline: none;
+          opacity: 0.7;
+          -webkit-transition: .2s;
+          transition: opacity .2s;
+        }
+        
+        .slider:hover {
+          opacity: 1;
+        }
+        
+        .slider::-webkit-slider-thumb {
+          -webkit-appearance: none;
+          appearance: none;
+          width: 25px;
+          height: 25px;
+          background: #ff0000;
+          cursor: pointer;
+        }
+        
+        .slider::-moz-range-thumb {
+          width: 25px;
+          height: 25px;
+          background: #ff0000;
+          cursor: pointer;
+        }
+        </style>
+
+<!-- ! slider S -->
+<div class="slidecontainer">
+    <input onchange="apr()" type="range" min="1" max="100" value="50" class="slider" id="myRange">
+    <p>Ceļš | S: <span id="demo"></span></p>
+  </div>
+
+  <!-- 2 slider V -->
+  <div class="slidecontainer">
+    <input onchange="apr()" type="range" min="1" max="100" value="50" class="slider" id="myRange2">
+    <p>Ātrums | V: <span id="demo2"></span></p>
+  </div>
+
+  <!-- 3 slider T -->
+  <div class="slidecontainer">
+    <input onchange="apr()" type="range" min="1" max="100" value="50" class="slider" id="myRange3">
+    <p>Laiks | T: <span id="demo3"></span></p>
+  </div>
+  
+
+  <script>
+
+// ! slider S
+
+  var s = document.getElementById("myRange");
+console.log(s);
+  
+// 2 slider V
+
+  var v = document.getElementById("myRange2");
+ 
+// 3 slider T
+
+  var t = document.getElementById("myRange3");
+
+
+  function apr(){
+ //   console.log("S " + s + "V " + v + "T " + t);
+var s=v*t
+var v=s/t
+var t=s/v
+//console.log("S " + s + "V " + v + "T " + t);
+
+  }
+
+
+  </script>
+    
+</body>
+</html>
