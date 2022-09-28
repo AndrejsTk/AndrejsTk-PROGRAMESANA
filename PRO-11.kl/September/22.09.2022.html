@@ -92,6 +92,46 @@
   slider3.oninput = function() {
     output3.innerHTML = this.value;
   }
+
+
+
+
+
+  
+  function sum( vs ) {
+  return vs.reduce( ( s, r ) => s + r, 0 );
+}
+function balance100( vs ) {
+  const s = sum( vs ) || 1;
+  vs.forEach( ( v, i ) => vs[ i ] = v/s * 100 );
+}
+const values = [ 100, 100, 100, 100 ];
+
+
+
+ranges = [ ...document.querySelectorAll( 'input[type="range"]') ];
+
+function arrange() {
+  ranges.forEach( ( r, i ) => {
+    r.value = values[ i ];
+  } )
+}
+
+ranges.forEach( ( ir, i ) => {
+  const deranges = ranges.filter( r => r !== ir );
+  const ind = i;
+  ir.value = values[ ind ];
+  ir.oninput = () => {
+    values[ ind ] = parseFloat( ir.value );
+    balance100( values );
+    arrange( ind );
+  }
+} )
+
+balance100( values );
+arrange();
+
+
   </script>
     
 </body>
