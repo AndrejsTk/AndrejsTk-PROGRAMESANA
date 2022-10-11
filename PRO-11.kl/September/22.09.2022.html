@@ -48,61 +48,58 @@
 
 <!-- ! slider S -->
 <div class="slidecontainer">
-    <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+    <input onchange="apr()" type="range" min="1" max="100" value="50" class="slider" id="myRange">
     <p>Ceļš | S <span id="demo"></span></p>
   </div>
 
   <!-- 2 slider V -->
   <div class="slidecontainer">
-    <input type="range" min="1" max="100" value="50" class="slider" id="myRange2">
+    <input onchange="apr()" type="range" min="1" max="100" value="50" class="slider" id="myRange2">
     <p>Ātrums | V <span id="demo2"></span></p>
   </div>
 
   <!-- 3 slider T -->
   <div class="slidecontainer">
-    <input type="range" min="1" max="20" value="1" class="slider" id="myRange3">
+    <input onchange="apr()" type="range" min="1" max="20" value="10" class="slider" id="myRange3">
     <p>Laiks | T <span id="demo3"></span></p>
   </div>
   
-  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
   <script>
 
-// ! slider S
+// 1 slider S
 
-  var slider = document.getElementById("myRange");
-//  var output = document.getElementById("demo");
-//  output.innerHTML = slider.value;
+var slider = document.getElementById("myRange");
+  var outputS = document.getElementById("demo");
+  outputS.innerHTML = slider.value;
   
   slider.oninput = function() {
-    output.innerHTML = this.value;
+    outputS.innerHTML = this.value;
   }
 
 // 2 slider V
 
   var slider2 = document.getElementById("myRange2");
-//  var output2 = document.getElementById("demo2");
-//  output2.innerHTML = slider2.value;
+  var outputV = document.getElementById("demo2");
+  outputV.innerHTML = slider2.value;
   
   slider2.oninput = function() {
-    output2.innerHTML = this.value;
+    outputV.innerHTML = this.value;
   }
 
 // 3 slider T
 
   var slider3 = document.getElementById("myRange3");
-//  var output3 = document.getElementById("demo3");
- // output3.innerHTML = slider3.value;
+  var outputT = document.getElementById("demo3");
+  outputT.innerHTML = slider3.value;
   
   slider3.oninput = function() {
-    output3.innerHTML = this.value;
+    outputT.innerHTML = this.value;
   }
 
 
 // Slaidera maina
-
-
-  
+ 
   function sum( vs ) {
   return vs.reduce( ( s, r ) => s + r, 0 );
 }
@@ -133,40 +130,21 @@ ranges.forEach( ( ir, i ) => {
   }
 } )
 
-balance100( values );
-arrange();
 
 
 
+function apr(){
 
+outputS.innerHTML = outputV.innerHTML*outputT.innerHTML;
+console.log("S = " + outputS.innerHTML);
 
+outputV.innerHTML = outputS.innerHTML/outputT.innerHTML;
+console.log("V = " + outputV.innerHTML);
 
+outputT.innerHTML = outputS.innerHTML/outputV.innerHTML;
+console.log("T = " + outputT.innerHTML);
 
-// Line Chart
-
-
-
-var xValues = [];
-var yValues = [];
-
-// Generate values
-for (var x = 0; x <= 100; x += 1) {
-  xValues.push(x);
-  yValues.push(x);
 }
-
-// Define Data
-var data = [{
-  x: xValues,
-  y: yValues,
-  mode: "lines"
-}];
-
-// Define Layout
-var layout = {title: "y = x"};
-
-// Display using Plotly
-Plotly.newPlot("myPlot", data, layout);
 
   </script>
 

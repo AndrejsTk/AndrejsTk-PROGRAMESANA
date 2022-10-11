@@ -56,35 +56,56 @@
 
   <!-- 3 slider T -->
   <div class="slidecontainer">
-    <input onchange="apr()" type="range" min="1" max="100" value="50" class="slider" id="myRange3">
+    <input onchange="apr()" type="range" min="1" max="20" value="10" class="slider" id="myRange3">
     <p>Laiks | T: <span id="demo3"></span></p>
   </div>
   
 
   <script>
 
-// ! slider S
+// 1 slider S
 
-  var s = document.getElementById("myRange");
-console.log(s);
+var slider = document.getElementById("myRange");
+  var outputS = document.getElementById("demo");
+  outputS.innerHTML = slider.value;
   
+  slider.oninput = function() {
+    outputS.innerHTML = this.value;
+  }
+
 // 2 slider V
 
-  var v = document.getElementById("myRange2");
- 
+  var slider2 = document.getElementById("myRange2");
+  var outputV = document.getElementById("demo2");
+  outputV.innerHTML = slider2.value;
+  
+  slider2.oninput = function() {
+    outputV.innerHTML = this.value;
+  }
+
 // 3 slider T
 
-  var t = document.getElementById("myRange3");
-
-
-  function apr(){
- //   console.log("S " + s + "V " + v + "T " + t);
-var s=v*t
-var v=s/t
-var t=s/v
-//console.log("S " + s + "V " + v + "T " + t);
-
+  var slider3 = document.getElementById("myRange3");
+  var outputT = document.getElementById("demo3");
+  outputT.innerHTML = slider3.value;
+  
+  slider3.oninput = function() {
+    outputT.innerHTML = this.value;
   }
+
+
+function apr(){
+
+outputS.innerHTML = outputV.innerHTML*outputT.innerHTML;
+console.log("S = " + outputS.innerHTML);
+
+outputV.innerHTML = outputS.innerHTML/outputT.innerHTML;
+console.log("V = " + outputV.innerHTML);
+
+outputT.innerHTML = outputS.innerHTML/outputV.innerHTML;
+console.log("T = " + outputT.innerHTML);
+
+}
 
 
   </script>
