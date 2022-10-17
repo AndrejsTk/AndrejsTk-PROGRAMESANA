@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body bgcolor="#A7FF84" onload="svapr(), stapr(), vtapr()">
+
+    <style>
+        .slidecontainer {
+          width: 400px;
+        }
+        
+        .slider {
+          -webkit-appearance: none;
+          width: 400px;
+          height: 25px;
+          background: #095600;
+          outline: none;
+          opacity: 0.7;
+          -webkit-transition: .2s;
+          transition: opacity .2s;
+        }
+        
+        .slider:hover {
+          opacity: 1;
+        }
+        
+        .slider::-webkit-slider-thumb {
+          -webkit-appearance: none;
+          appearance: none;
+          width: 25px;
+          height: 25px;
+          background: #ff0000;
+          cursor: pointer;
+        }
+        
+        .slider::-moz-range-thumb {
+          width: 25px;
+          height: 25px;
+          background: #ff0000;
+          cursor: pointer;
+        }
+        </style>
+
+  <div class="slidecontainer">
+    <input oninput="func(event), svapr(), stapr(), vtapr()" type="range" min="1" max="500" value="250" class="slider" id="range1">
+    <p>Distance S = <span id="demo"></span></p>
+  </div>
+  
+  <div class="slidecontainer">
+    <input oninput="func(event), svapr(), stapr(), vtapr()" type="range" min="1" max="100" value="50" class="slider" id="range2">
+    <p>Speed V =  <span id="demo2"></span></p>
+  </div>
+  
+  <div class="slidecontainer">
+    <input oninput="func(event), svapr(), stapr(), vtapr()" type="range" min="1" max="10" value="5" class="slider" id="range3">
+    <p>Time T = <span id="demo3"></span></p>
+  </div>
+  
+  <script>
+
+var sliders = document.getElementById("range1");
+var outputS = document.getElementById("demo");
+var sliderv = document.getElementById("range2");
+var outputV = document.getElementById("demo2");
+var slidert = document.getElementById("range3");
+var outputT = document.getElementById("demo3");
+
+outputS.innerHTML = sliders.value;
+outputV.innerHTML = sliderv.value;
+outputT.innerHTML = slidert.value;
+
+function func(event) {
+  
+  if ( event.target === sliders ) {
+    sliderv.value = sliders.value/slidert.value;
+    slidert.value = sliders.value/sliderv.value;
+  } 
+  else if (event.target === sliderv) {
+    slidert.value = sliders.value/sliderv.value;
+    sliders.value = sliderv.value*slidert.value;
+  } 
+  else if (event.target === slidert) {
+    sliders.value = sliderv.value*slidert.value;
+    sliderv.value = sliders.value/slidert.value;
+  }
+  
+  outputS.innerHTML = sliders.value;
+  outputV.innerHTML = sliderv.value;
+  outputT.innerHTML = slidert.value;
+}
+
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+
+<p>S, km</p>
+<canvas id="myChartSV" style="width:100%;max-width:312px"></canvas>
+<p>S, km</p>
+<canvas id="myChartST" style="width:100%;max-width:300px"></canvas>
+<p>V, km/h</p>
+<canvas id="myChartVT" style="width:100%;max-width:300px"></canvas>
+
+<script>
+
+function svapr(){
+var xValues = [0, sliderv.value + ' V, km/h'];
+
+new Chart("myChartSV", {
+  type: "line",
+  data: {
+    labels: xValues,
+    datasets: [{ 
+      data: [0, sliders.value],
+      borderColor: "red",
+      fill: false
+    }]
+  },
+  options: {
+    legend: {display: false}
+  }
+});
+
+}
+
+function stapr(){
+var xValues = [0, slidert.value + ' T, h'];
+
+new Chart("myChartST", {
+  type: "line",
+  data: {
+    labels: xValues,
+    datasets: [{ 
+      data: [0, sliders.value],
+      borderColor: "red",
+      fill: false
+    }]
+  },
+  options: {
+    legend: {display: false}
+  }
+});
+
+}
+
+function vtapr(){
+var xValues = [0, slidert.value + ' T, h'];
+
+new Chart("myChartVT", {
+  type: "line",
+  data: {
+    labels: xValues,
+    datasets: [{ 
+      data: [0, sliderv.value],
+      borderColor: "red",
+      fill: false
+    }]
+  },
+  options: {
+    legend: {display: false}
+  }
+});
+}
+</script>
+
+</body>
+</html>
