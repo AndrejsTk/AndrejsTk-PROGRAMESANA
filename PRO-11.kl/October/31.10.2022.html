@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body bgcolor="lightblue">
+
+<style>
+.div-1 {
+  float: left;
+  font-size: 20px;
+  background-color: #f5f3ff;
+  text-align: left;
+  border-style: solid;
+  border-color: rgba(123, 123, 123, 0.814);
+}
+h1 {
+  font-size: 20px;
+  background-color: #f5f3ff;
+}
+
+</style>
+<h1><b>API</b></h1>
+<div class="div-1" style="width: 500px; height: 490px">
+
+Termins API <b>(Application Programming Interface, API)</b> apzīmē lietojumprogrammu programmēšanas saskarni. 
+Tas būtībā ir “spraudnis”, kuru ārējie programmētāji var izmantot, lai izveidotu savienojumu ar noteiktu lietojumprogrammu. 
+Programmētājs pieprasa informāciju no API un sniedz šo informāciju paša programmētāja lietojumprogrammas lietotājam.
+<br>
+Pateicoties API, jūs varat atkārtoti savienot vairākas programmas, rīkus, kā arī automatizēt un ietekmēt daudzus uzdevumus. 
+Divas dažādas programmatūras var “sazināties” tieši, izmantojot API.
+<br>
+<img src="1 photo.png" style="width: 500px; height: 250px">
+</div>
+<div class="div-1" align="center" style="width: 300px; height: 490px">
+Datu pārsūtīšanas struktūra atbilst arhitektūrai, kas pazīstama kā JSON, kas apzīmē JavaScript objekta notāciju. 
+JSON ir tā dēvētā “datu apmaiņa”. Vienkārši sakot, tas ir veids, kā programmētāji var pieprasīt informāciju cilvēkam un mašīnlasāmā formātā.
+<br>
+<br>
+<br>
+<br>
+<img src="3 photo.png" style="width: 300px; height: 250px">
+</div>
+<div class="div-1" align="center" style="width: 500px; height: 490px">
+    Notikumu secība ir šāda:
+    <br>
+
+1.    Klienta lietojumprogramma nosūta JSON strukturētu datu pieprasījumu internetā uz tīmekļa API saskarni.<br>
+2.    API saņem pieprasījumu, apstrādā to un iegūst pieprasīto informāciju no jebkuras vajadzīgās iekšējās datu bāzes.<br>
+3.    API internetā reaģē uz pieprasošo lietojumprogrammu, izmantojot to pašu JSON strukturēto formātu.<br>
+4.    Klienta lietojumprogramma saņem JSON atbildi un sniedz informāciju lietotājam, izmantojot lietojumprogrammas saskarni.
+<br>
+<br>
+<img src="2 photo.png" style="width: 500px; height: 250px">
+</div>
+
+<div id="map" style="width: 1313px; height: 400px"></div>
+
+<script>
+
+function initMap(){
+var map = new google.maps.Map(document.getElementById('map'), {
+center: {lat: 0.0, lng: 0.0},
+scrollwheel: true,
+zoom: 2
+});
+}
+
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvfzEEkawR01K94O07mHPYLN2nGvuKI2I&callback=initMap" async defer></script>   
+
+
+</body>
+</html>
