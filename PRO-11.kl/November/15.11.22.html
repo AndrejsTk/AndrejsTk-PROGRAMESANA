@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+
+var elem = ["H"];
+
+
+function show(){
+var sh;
+sh = document.getElementById("text").value;
+elem.push(sh);
+document.getElementById('one').innerHTML=elem + ", ";
+}
+
+</script>
+
+
+<input type="text" id="text">
+<!--<button onclick="apr()">GO</button>-->
+<button onclick="show()">Show</button>
+<br>
+
+<p id="one">Test</p>
+</body>
+</html>
