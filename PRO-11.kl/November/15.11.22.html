@@ -8,24 +8,35 @@
 
 <script>
 
-var elem = ["H"];
+var elem = [];
 
-
-function show(){
+    function show(){
 var sh;
 sh = document.getElementById("text").value;
 elem.push(sh);
-document.getElementById('one').innerHTML=elem + ", ";
+
+let txt = text.value;
+
+while (txt.length == 0) {
+alert("Ievadiet tekstu input logā");
+elem = [];
+return;
+}
+document.getElementById('text').value = ' ';
+}
+
+    function apr(){
+document.getElementById('one').innerHTML= elem + ' ';
 }
 
 </script>
 
-
-<input type="text" id="text">
-<!--<button onclick="apr()">GO</button>-->
-<button onclick="show()">Show</button>
+<input type="text" id="text" value="">
+<button onclick="show()">Save</button>
+<button onclick="apr()">Show</button>
 <br>
 
-<p id="one">Test</p>
+<p>Saraksts: </p>
+<p id="one"></p>
 </body>
 </html>
