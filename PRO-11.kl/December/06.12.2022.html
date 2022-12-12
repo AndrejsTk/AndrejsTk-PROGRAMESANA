@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script onload="main()">
+function main() {
+var element = ['1.png', '2.png', '3.png', '4.png', '5.png']; 
+var elrandom = Math.floor(Math.random() * element.length); 
+var randomim = element[elrandom]; 
+var img = document.querySelector('img').src = randomim; 
+} 
+</script>
+<button onclick="main()">START</button><br><br>
+<img height="100px" width="100px" src="1.png"/> 
+
+
+
+</body>
+</html>

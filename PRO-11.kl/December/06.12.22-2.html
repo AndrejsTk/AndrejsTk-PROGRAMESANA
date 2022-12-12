@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+function main(input) {
+var file = input.files[0];
+console.log('File: ' + file.name); 
+// }
+//function save(){
+var att = [];
+att.push(file)
+console.log('New file: ' + att);
+var elrandom = Math.floor(Math.random() * att.length); 
+var randomim = att[elrandom]; 
+var img = document.querySelector('img').src = randomim; 
+}
+
+</script>
+    <input type="file" onchange="main(this)">   
+<!--   <button onclick="save()">Save</button>--> 
+<img height="100px" width="100px" src=""/> 
+</body>
+</html>
