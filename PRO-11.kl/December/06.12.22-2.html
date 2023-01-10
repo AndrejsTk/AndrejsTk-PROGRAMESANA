@@ -6,23 +6,26 @@
 </head>
 <body>
     <script>
+ var element = [];       
+function main() {
 
-function main(input) {
-var file = input.files[0];
-console.log('File: ' + file.name); 
-// }
-//function save(){
-var att = [];
-att.push(file)
-console.log('New file: ' + att);
-var elrandom = Math.floor(Math.random() * att.length); 
-var randomim = att[elrandom]; 
-var img = document.querySelector('img').src = randomim; 
+att = document.getElementById('atteli').files[0].name;
+console.log(att);
+element.push(att);
+console.log(element);
+}
+function save() {
+var ellength = element.length;
+var elrandom = Math.floor(Math.random() * ellength); 
+console.log(elrandom);
+var randomattels = element[elrandom]; 
+var atteli = document.querySelector('img').src = randomattels; 
 }
 
 </script>
-    <input type="file" onchange="main(this)">   
-<!--   <button onclick="save()">Save</button>--> 
-<img height="100px" width="100px" src=""/> 
+
+<input type="file" id="atteli" onchange="main()"> <br><br>  
+<button onclick="save()">START</button>
+<img height="100px" width="100px" src="1.png"/> 
 </body>
 </html>

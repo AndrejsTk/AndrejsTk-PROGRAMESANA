@@ -4,19 +4,18 @@
     <meta charset="UTF-8">
     <title>Document</title>
 </head>
-<body>
-<script onload="main()">
+<body style="background-color:rgb(186, 232, 238);">
+<script>
 function main() {
-var element = ['1.png', '2.png', '3.png', '4.png', '5.png']; 
-var elrandom = Math.floor(Math.random() * element.length); 
-var randomim = element[elrandom]; 
-var img = document.querySelector('img').src = randomim; 
+var element = ['1.png', '2.png', '3.png', '4.png', '5.png', '6.png'];
+var ellength = element.length;
+var elrandom = Math.floor(Math.random() * ellength); 
+console.log(elrandom);
+var randomattels = element[elrandom]; 
+var atteli = document.getElementById('img').src = randomattels; 
 } 
 </script>
 <button onclick="main()">START</button><br><br>
-<img height="100px" width="100px" src="1.png"/> 
-
-
-
+<img id="img" height="200px" width="200px" src="1.png"/> 
 </body>
 </html>
