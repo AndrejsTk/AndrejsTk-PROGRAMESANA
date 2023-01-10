@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="atkacenko9"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2023-01-10 09:23:53 priek&#353;p."/>
+        <attribute name="created" value="YXRrYWNlbmtvOTtEWDAyMDQ4NTY4OzIwMjMtMDEtMTA7MDg6Mzc6NTEgcHJpZWvFoXAuOzM3NDU="/>
+        <attribute name="edited" value="YXRrYWNlbmtvOTtEWDAyMDQ4NTY4OzIwMjMtMDEtMTA7MDk6MjM6NTMgcHJpZWvFoXAuOzE7Mzg1MQ=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="list" type="Integer" array="True" size="5"/>
+            <declare name="item" type="Integer" array="False" size=""/>
+            <assign variable="list[0]" expression="5"/>
+            <assign variable="list[1]" expression="9"/>
+            <assign variable="list[2]" expression="15"/>
+            <assign variable="list[3]" expression="3"/>
+            <assign variable="list[4]" expression="7"/>
+            <output expression="&quot;No sort&quot;" newline="True"/>
+            <for variable="item" start="0" end="size(list)-1" direction="inc" step="1">
+                <output expression="list(item)" newline="True"/>
+            </for>
+            <call expression="Reverse(list)"/>
+            <output expression="&quot;Reversed&quot;" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
