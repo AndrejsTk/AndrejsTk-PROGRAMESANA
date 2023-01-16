@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value="Main3"/>
+        <attribute name="authors" value="&#1040;&#1085;&#1076;&#1088;&#1077;&#1081;"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2023-01-16 09:43:28 "/>
+        <attribute name="created" value="0JDQvdC00YDQtdC5O01TSS1HRjYzLVRISU47MjAyMy0wMS0xNjsiMDg6NTI6MTcgIjs4NTE2"/>
+        <attribute name="edited" value="0JDQvdC00YDQtdC5O01TSS1HRjYzLVRISU47MjAyMy0wMS0xNjsiMDk6NDM6MjggIjs0Ozg2MzA="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <call expression="main2"/>
+        </body>
+    </function>
+    <function name="Main2" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="num" type="Integer" array="False" size=""/>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <declare name="rev" type="Integer" array="False" size=""/>
+            <output expression="&quot;Enter array legth&quot;" newline="True"/>
+            <input variable="num"/>
+            <assign variable="rev" expression="0"/>
+            <declare name="a" type="Integer" array="True" size="num"/>
+            <output expression="&quot;Enter numbers&quot;" newline="True"/>
+            <for variable="i" start="0" end="num-1" direction="inc" step="1">
+                <input variable="a[i]"/>
+            </for>
+            <for variable="i" start="num-1" end="0" direction="dec" step="1">
+                <output expression="a[i]" newline="True"/>
+            </for>
+        </body>
+    </function>
+</flowgorithm>
