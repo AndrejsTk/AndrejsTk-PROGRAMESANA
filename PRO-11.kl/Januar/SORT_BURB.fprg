@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value="Main3"/>
+        <attribute name="authors" value="&#1040;&#1085;&#1076;&#1088;&#1077;&#1081;"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2023-01-17 09:24:31 priek&#353;p."/>
+        <attribute name="created" value="0JDQvdC00YDQtdC5O01TSS1HRjYzLVRISU47MjAyMy0wMS0xNjsiMDg6NTI6MTcgIjs4NTE2"/>
+        <attribute name="edited" value="0JDQvdC00YDQtdC5O01TSS1HRjYzLVRISU47MjAyMy0wMS0xNjsiMDk6NDM6MjggIjs0Ozg2MzA="/>
+        <attribute name="edited" value="YXRrYWNlbmtvOTtEWDAyMDQ4NTY4OzIwMjMtMDEtMTc7MDk6MjQ6MzEgcHJpZWvFoXAuOzE7Mzg1NQ=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="unsortlist" type="Integer" array="True" size="5"/>
+            <declare name="item" type="Integer" array="False" size=""/>
+            <assign variable="unsortlist[0]" expression="8"/>
+            <assign variable="unsortlist[1]" expression="3"/>
+            <assign variable="unsortlist[2]" expression="1"/>
+            <assign variable="unsortlist[3]" expression="9"/>
+            <assign variable="unsortlist[4]" expression="7"/>
+            <output expression="&quot;Unsorted&quot;" newline="True"/>
+            <for variable="item" start="0" end="size(unsortlist)-1" direction="inc" step="1">
+                <output expression="unsortlist[item]" newline="True"/>
+            </for>
+            <call expression="bubblesort(unsortlist)"/>
+            <output expression="&quot;Sorted&quot;" newline="True"/>
+            <for variable="item" start="0" end="size(unsortlist)-1" direction="inc" step="1">
+                <output expression="unsortlist[item]" newline="True"/>
+            </for>
+        </body>
+    </function>
+    <function name="bubblesort" type="None" variable="">
+        <parameters>
+            <parameter name="uList" type="Integer" array="True"/>
+        </parameters>
+        <body>
+            <declare name="swapped" type="Boolean" array="False" size=""/>
+            <assign variable="swapped" expression="true"/>
+            <declare name="temp" type="Integer" array="False" size=""/>
+            <declare name="item" type="Integer" array="False" size=""/>
+            <while expression="swapped = true">
+                <assign variable="swapped" expression="false"/>
+                <for variable="item" start="0" end="size(uList)-2" direction="inc" step="1">
+                    <if expression="uList[item] &gt; uList[item+1]">
+                        <then>
+                            <assign variable="temp" expression="uList[item]"/>
+                            <assign variable="uList[item]" expression="uList[item+1]"/>
+                            <assign variable="uList[item+1]" expression="temp"/>
+                            <assign variable="swapped" expression="true"/>
+                        </then>
+                        <else/>
+                    </if>
+                </for>
+            </while>
+        </body>
+    </function>
+    <function name="Main2" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="num" type="Integer" array="False" size=""/>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <declare name="rev" type="Integer" array="False" size=""/>
+            <output expression="&quot;Enter array legth&quot;" newline="True"/>
+            <input variable="num"/>
+            <assign variable="rev" expression="0"/>
+            <declare name="a" type="Integer" array="True" size="num"/>
+            <output expression="&quot;Enter numbers&quot;" newline="True"/>
+            <for variable="i" start="0" end="num-1" direction="inc" step="1">
+                <input variable="a[i]"/>
+            </for>
+            <for variable="i" start="num-1" end="0" direction="dec" step="1">
+                <output expression="a[i]" newline="True"/>
+            </for>
+        </body>
+    </function>
+</flowgorithm>
