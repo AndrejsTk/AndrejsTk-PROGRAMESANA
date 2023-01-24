@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document-2</title>
+</head>
+<body>
+
+    <script>
+
+var arr = [44, 73, 1, 51, 9, 0, 3, 12, 58, 16];
+
+console.log(arr);
+
+function sort(list) {
+  for (let i = 0; i < list.length - 1; i++) {
+    let min = i;
+    for (let j = i + 1; j < list.length; j++) {
+      if (list[j] < list[min]) {
+        min = j;
+      }
+   
+    }
+    let dummy = list[i];
+    list[i] = list[min];
+    list[min] = dummy;
+  }
+  return list;
+}
+  console.log(sort(arr));  
+
+
+    </script>
+    
+</body>
+</html>
