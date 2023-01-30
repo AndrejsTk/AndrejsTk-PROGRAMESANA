@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bubble Sort</title>
+</head>
+<body bgcolor="lightgreen">
+  <h2>Bubble Sort</h2>
+    <style>
+      .button {
+    position: relative;
+    top: -10px;
+    left: 0px;       
+    font-size: 22px;
+    font-family: Monaco monospace;
+    color: rgb(255, 255, 255);
+    width: 150px;
+    height: 50px;
+    background: rgb(48, 109, 41);
+    border: 3px, black;
+    border-radius: 10px;
+      }
+      .button:hover {
+      background: rgb(9, 61, 3);
+      }
+    </style>
+    <script>
+      // Bubble Sort
+let arr = []; 
+let isSwapp = false;
+
+function bubbleSort(arr){
+    let a = 0;
+    arr = window.prompt('Input array`s numbers', '5, 1, 9, 23, 6');
+    arr = arr.split(',').map(Number);
+    console.log('Unsorted: ' + arr);
+     for(var i = 0; i < arr.length; i++){
+     isSwapped = false;
+     for(var j = 0; j < arr.length; j++){
+         if(arr[j] > arr[j + 1]){
+           let temp = arr[j]
+           arr[j] = arr[j+1];
+           arr[j+1] = temp;
+           isSwapp = true;
+           console.log('Next step: ' + arr);
+           a++;
+         }
+     }
+     if(isSwapp === false){
+       break;
+     }
+   }
+   console.log('Sorted: ' + arr);
+   console.log('Moves: ' + a);
+ }
+    </script>
+    <button onclick="bubbleSort()" id='button' class='button'>SORT</button>
+</body>
+</html>
