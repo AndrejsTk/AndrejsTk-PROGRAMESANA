@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <title>Bubble Sort</title>
 </head>
-<body bgcolor="lightgreen">
-  <h2>Bubble Sort</h2>
+<body bgcolor="lightgreen" onload="clear()">
+  <h2>Bubble Sort & Insertion Sort</h2>
     <style>
       .button {
     position: relative;
     top: -10px;
     left: 0px;       
-    font-size: 22px;
+    font-size: 16px;
     font-family: Monaco monospace;
     color: rgb(255, 255, 255);
     width: 150px;
@@ -23,6 +23,25 @@
       .button:hover {
       background: rgb(9, 61, 3);
       }
+
+      .text {
+        white-space: pre-line;
+      }
+      .text {
+    position: relative;
+    top: 150px;
+    left: 10px;
+    font-size: 20px; 
+      }
+      .s1 {
+    position: relative;
+    top: 430px;
+    left: 2px;
+    width: 870px;
+    height: 300px;
+    background-color: rgb(199, 255, 193);
+    border-radius: 15px;
+      }
     </style>
     <script>
       // Bubble Sort
@@ -32,6 +51,7 @@ let isSwapp = false;
 function bubbleSort(arr){
     let a = 0;
     arr = window.prompt('Input array`s numbers', '5, 1, 9, 23, 6');
+    document.getElementById('sort0').innerHTML += arr + '  ||  ';
     arr = arr.split(',').map(Number);
     console.log('Unsorted: ' + arr);
      for(var i = 0; i < arr.length; i++){
@@ -52,8 +72,92 @@ function bubbleSort(arr){
    }
    console.log('Sorted: ' + arr);
    console.log('Moves: ' + a);
- }
+  let arrU = document.getElementById('sort1').innerHTML += arr + '  ||  ';
+  localStorage.setItem("massive", arrU);  
+  }
+
+  // Save document
+    function savedoc(arr) {
+  let arrr = localStorage.getItem("massive");
+  if (arrr != null) {
+  var blob = new Blob([JSON.stringify(arrr)], {type: "text/javascript"});
+  var link = document.createElement("a");
+  link.setAttribute("href", URL.createObjectURL(blob));
+  link.setAttribute("download", "array.txt");
+  link.click();
+    } else {
+      alert('You should input numbers.');
+    }
+  }
+
+    // Insertion Sort
+    function sort2() {
+  let a = 0;
+  arr = window.prompt('Input array`s numbers', '23, 1, 76, 15, 7');
+  document.getElementById('sort0').innerHTML += arr + '  ||  ';
+    arr = arr.split(',').map(Number);
+    console.log('Unsorted: ' + arr);
+  for (let i = 0; i < arr.length - 1; i++) {
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[j] < arr[i]) {
+        let temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+        a++;
+        console.log('Next step: ' + arr);
+      }
+    }
+  }
+  console.log('Sorted: ' + arr);
+  console.log('Moves: ' + a);
+  let arrU2 = document.getElementById('sort1').innerHTML += arr + '  ||  ';
+  localStorage.setItem("massive", arrU2);  
+}
+
+// Quick sort
+
+function sort3() {
+    arr = window.prompt('Input array`s numbers', '6, 1, 76, 12, 9');
+    document.getElementById('sort0').innerHTML += arr + '  ||  ';
+    arr = arr.split(',').map(Number);
+    console.log('Unsorted: ' + arr);
+  if (arr.length <= 1) {
+    return arr;
+  }
+  var pivot = arr[0];
+  var left = []; 
+  var right = [];
+
+  for (var i = 1; i < arr.length; i++) {
+    arr[i] < pivot ? left.push(arr[i]) : right.push(arr[i]);
+  }
+
+  return sort3(left).concat(pivot, quicksort(right));
+  console.log('Sorted: ' + arr);
+  console.log('Moves: ' + a);
+  let arrU2 = document.getElementById('sort1').innerHTML += arr + '  ||  ';
+  localStorage.setItem("massive", arrU2);  
+};
+
+function clear() {
+  localStorage.clear();
+}
+
     </script>
-    <button onclick="bubbleSort()" id='button' class='button'>SORT</button>
+    <button onclick="bubbleSort()" id='button' class='button'>BUBBLE SORT</button>
+    <button onclick="sort2()" id='button' class='button'>INSERTION SORT</button>
+    <button onclick="sort3()" id='button' class='button'>QUICK SORT</button>
+    <button onclick="savedoc()" id='button' class='button'>SAVE</button>
+    <h3 id="sort0">Unsorted arrays: </h3>
+    <h3 id="sort1">Sorted arrays: </h3>
+    <div class="s1"></div>    
+    <span id="text" class='text'><b>Uzdevumu apraksts:</b><br>
+      1. Izveidot 3 dažādas masīvu kartošānas sistēmas, kuri varetu kartot ievadītos masivus.<br>
+      2. Izveidot trīs pogas ar 3 kartošanas metodem.<br>
+      3. Izveidot ievadīšanas logu, kur lietotājs varetu ievadīt masivu, kas sastav no skaitļiem.<br>
+      4. Izvadīt sakartotu masivu jaunā rindkopā.<br>
+      5. Izveidot pogu, kļīkšķīnot uz kuru, lietotājs varetu saglābāt izveidotu sakartotu masivu atsevišķajā failā.<br>
+    </span>
+
 </body>
 </html>
