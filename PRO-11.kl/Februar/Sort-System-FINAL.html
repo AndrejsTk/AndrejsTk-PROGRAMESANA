@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Bubble Sort</title>
+</head>
+
+<body bgcolor="lightgreen">
+  <h2>Bubble Sort & Insertion Sort & Cocktail Sort</h2>
+  <style>
+    .button {
+      position: relative;
+      top: -10px;
+      left: 0px;
+      font-size: 16px;
+      font-family: Monaco monospace;
+      color: rgb(255, 255, 255);
+      width: 150px;
+      height: 50px;
+      background: rgb(48, 109, 41);
+      border: 3px, black;
+      border-radius: 10px;
+    }
+
+    .button2 {
+      position: relative;
+      top: -10px;
+      left: 0px;
+      font-size: 16px;
+      font-family: Monaco monospace;
+      color: rgb(255, 255, 255);
+      width: 150px;
+      height: 50px;
+      background: rgb(4, 43, 0);
+      border: 3px solid black;
+      border-radius: 10px;
+    }
+
+    .button:hover {
+      background: rgb(9, 61, 3);
+    }
+
+    .button2:hover {
+      background: rgb(16, 161, 0);
+    }
+
+    .text {
+      position: relative;
+      top: 150px;
+      left: 0px;
+      font-size: 20px;
+      padding-left: 15px;
+      padding-top: 10px;
+      white-space: pre-line;
+      width: 870px;
+      height: 280px;
+      background-color: rgb(199, 255, 193);
+      border-radius: 15px;
+    }
+
+    .sort1 {
+      text-indent: 20px;
+    }
+
+    input[type="file"] {
+      display: none;
+    }
+
+    .custom-file-upload {
+      position: absolute;
+      top: 64px;
+      left: 625px;
+      border: 3px solid rgb(1, 0, 0);
+      display: inline-block;
+      padding: 6px 12px;
+      cursor: pointer;
+      background: rgb(208, 255, 202);
+      border-radius: 5px;
+    }
+
+    .custom-file-upload:hover {
+      background: rgb(112, 248, 94);
+    }
+  </style>
+  <script>
+    let allow = true;
+    // Bubble Sort
+    let arr = [];
+    let isSwapp = false;
+
+    function bubbleSort(arr) {
+      let a = 0;
+      arr = localStorage.getItem("file");
+      if (arr != null || arr != undefined) {
+        allow = false;
+      }
+      if (allow === true) {
+        arr = window.prompt('BUBBLE SORT: \nInput array`s numbers', '5,1,9,23,6');
+      }
+      arr = arr.match(/(-?\d+(\.\d+)?)/g).map(Number);
+      document.getElementById('sort0').innerHTML += arr + '  ||  ';
+      console.log('Unsorted: ' + arr);
+      for (var i = 0; i < arr.length; i++) {
+        isSwapped = false;
+        for (var j = 0; j < arr.length; j++) {
+          if (arr[j] > arr[j + 1]) {
+            let temp = arr[j]
+            arr[j] = arr[j + 1];
+            arr[j + 1] = temp;
+            isSwapp = true;
+            console.log('Next step: ' + arr);
+            a++;
+          }
+        }
+        if (isSwapp === false) {
+          break;
+        }
+      }
+
+      console.log('Sorted: ' + arr);
+      console.log('Moves: ' + a);
+      let arrU = document.getElementById('sort1').innerHTML += arr + '  ||  ';
+      localStorage.removeItem("file");
+      allow = true;
+    }
+
+    // Insertion Sort
+    function sort2() {
+      let a = 0;
+      arr = localStorage.getItem("file");
+      if (arr != null || arr != undefined) {
+        allow = false;
+      }
+      if (allow === true) {
+        arr = window.prompt('INSERTION SORT: \nInput array`s numbers', '23,1,76,15,7');
+      }
+      arr = arr.match(/(-?\d+(\.\d+)?)/g).map(Number);
+      document.getElementById('sort0').innerHTML += arr + '  ||  ';
+      console.log('Unsorted: ' + arr);
+      for (let i = 0; i < arr.length - 1; i++) {
+        for (let j = i + 1; j < arr.length; j++) {
+          if (arr[j] < arr[i]) {
+            let temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+            a++;
+            console.log('Next step: ' + arr);
+          }
+        }
+      }
+      console.log('Sorted: ' + arr);
+      console.log('Moves: ' + a);
+      let arrU2 = document.getElementById('sort1').innerHTML += arr + '  ||  ';
+      localStorage.removeItem("file");
+      allow = true;
+    }
+
+    // Coctail sort
+
+    function sort3() {
+      arr = localStorage.getItem("file");
+      if (arr != null || arr != undefined) {
+        allow = false;
+      }
+      if (allow === true) {
+        arr = window.prompt('COCKTAIL SORT: \nInput array`s numbers', '6,1,76,12,9');
+      }
+      arr = arr.match(/(-?\d+(\.\d+)?)/g).map(Number);
+      document.getElementById('sort0').innerHTML += arr + '  ||  ';
+      console.log('Unsorted: ' + arr);
+      let start = 0;
+      let len = arr.length;
+      let swapped = true;
+      let a = 0;
+      while (swapped) {
+        swapped = false;
+        for (let i = start; i < len - 1; i++) {
+          if (arr[i] > arr[i + 1]) {
+            let temp = arr[i];
+            arr[i] = arr[i + 1];
+            arr[i + 1] = temp;
+            swapped = true;
+          }
+        }
+        len--;
+        if (swapped === false) {
+          break;
+        }
+        swapped = false;
+        for (let i = len - 1; i > start; i--) {
+          if (arr[i - 1] > arr[i]) {
+            let temp = arr[i];
+            arr[i] = arr[i - 1];
+            arr[i - 1] = temp;
+            swapped = true;
+          }
+          console.log('Next step: ' + arr);
+          a++;
+        }
+        start++;
+      }
+      console.log('Sorted: ' + arr);
+      console.log('Moves: ' + a);
+      let arrU2 = document.getElementById('sort1').innerHTML += arr + '  ||  ';
+      localStorage.removeItem("file");
+      allow = true;
+    };
+
+    // Save document
+    function savedoc(arr) {
+      let arrr = document.getElementById('sort1').innerHTML;
+      if (arrr.length != 14) {
+        var blob = new Blob([JSON.stringify(arrr)], { type: "text/javascript" }); //.match(/(-?\d+(\.\d+)?)/g)
+        var link = document.createElement("a");
+        link.setAttribute("href", URL.createObjectURL(blob));
+        link.setAttribute("download", "array.txt");
+        link.click();
+      } else {
+        alert('You should input numbers.');
+      }
+    }
+
+    // File reader
+    function readFile(input) {
+      let file = input.files[0];
+      let reader = new FileReader();
+      reader.readAsText(file);
+      reader.onload = function () {
+        window.confirm('Input array is: \n' + reader.result.match(/(-?\d+(\.\d+)?)/g).map(Number));
+        localStorage.setItem("file", reader.result.match(/(-?\d+(\.\d+)?)/g).map(Number));
+      };
+      reader.onerror = function () {
+        console.log(reader.error);
+      };
+    }
+  </script>
+  <button onclick="bubbleSort()" id='button' class='button'>FIRST SORT</button>
+  <button onclick="sort2()" id='button' class='button'>SECOND SORT</button>
+  <button onclick="sort3()" id='button' class='button'>THIRD SORT</button>
+  <button onclick="savedoc()" id='button' class='button2'>SAVE</button>
+  <h3 id="sort0">Unsorted array: </h3>
+  <h3 id="sort1" class="sort1">Sorted array: </h3>
+  <div id="text" class='text'><b>Uzdevumu apraksts:</b><br>
+    1. Jūs varat izvēlēties 3 dažādas masīvu kārtošanas metodes un noklikšķināt uz atbilstošās pogas.<br>
+    2. Pēc tam ievadiet ciparu masīvu, atdalot to ar komatiem, un noklikšķiniet uz 'OK'.<br>
+    3. Zem pogām izveidosies divas rindas - nešķirots masīvs un sakārtots masīvs.<br>
+    4. Pēc tam jūs varat saglabāt sakārtoto masīvu un lejuplādēt to '.txt' failā.<br>
+    5. Turklāt jūs varat ielādēt savu teksta failu, kurā ir nešķiroti skaitļi, un kārtot tos, izmantojot dažādas masīva kārtošanas metodes.<br>
+  </div>
+  <label for="file-upload" class="custom-file-upload">
+    <i class="fa fa-cloud-upload"></i> File Upload
+  </label>
+  <input id="file-upload" type="file" onchange="readFile(this)" />
+
+</body>
+
+</html>
