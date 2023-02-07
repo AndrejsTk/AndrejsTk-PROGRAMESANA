@@ -6,7 +6,7 @@
   <title>Bubble Sort</title>
 </head>
 
-<body bgcolor="lightgreen">
+<body bgcolor="lightgreen" onload="clear()">
   <h2>Bubble Sort & Insertion Sort & Cocktail Sort</h2>
   <style>
     .button {
@@ -26,13 +26,27 @@
     .button2 {
       position: relative;
       top: -10px;
-      left: 0px;
+      left: 152px;
       font-size: 16px;
       font-family: Monaco monospace;
       color: rgb(255, 255, 255);
       width: 150px;
       height: 50px;
       background: rgb(4, 43, 0);
+      border: 3px solid black;
+      border-radius: 10px;
+    }
+
+    .buttonR {
+      position: relative;
+      top: -10px;
+      left: -155px;
+      font-size: 16px;
+      font-family: Monaco monospace;
+      color: rgb(255, 255, 255);
+      width: 150px;
+      height: 50px;
+      background: rgb(13, 128, 0);
       border: 3px solid black;
       border-radius: 10px;
     }
@@ -45,6 +59,10 @@
       background: rgb(16, 161, 0);
     }
 
+    .buttonR:hover {
+      background: rgb(20, 204, 0);
+    }
+
     .text {
       position: relative;
       top: 150px;
@@ -54,7 +72,7 @@
       padding-top: 10px;
       white-space: pre-line;
       width: 870px;
-      height: 280px;
+      height: 350px;
       background-color: rgb(199, 255, 193);
       border-radius: 15px;
     }
@@ -70,7 +88,7 @@
     .custom-file-upload {
       position: absolute;
       top: 64px;
-      left: 625px;
+      left: 775px;
       border: 3px solid rgb(1, 0, 0);
       display: inline-block;
       padding: 6px 12px;
@@ -120,7 +138,7 @@
 
       console.log('Sorted: ' + arr);
       console.log('Moves: ' + a);
-      let arrU = document.getElementById('sort1').innerHTML += arr + '  ||  ';
+      document.getElementById('sort1').innerHTML += arr + '  ||  ';
       localStorage.removeItem("file");
       allow = true;
     }
@@ -151,7 +169,7 @@
       }
       console.log('Sorted: ' + arr);
       console.log('Moves: ' + a);
-      let arrU2 = document.getElementById('sort1').innerHTML += arr + '  ||  ';
+      document.getElementById('sort1').innerHTML += arr + '  ||  ';
       localStorage.removeItem("file");
       allow = true;
     }
@@ -202,7 +220,7 @@
       }
       console.log('Sorted: ' + arr);
       console.log('Moves: ' + a);
-      let arrU2 = document.getElementById('sort1').innerHTML += arr + '  ||  ';
+      document.getElementById('sort1').innerHTML += arr + '  ||  ';
       localStorage.removeItem("file");
       allow = true;
     };
@@ -234,19 +252,47 @@
         console.log(reader.error);
       };
     }
+
+    function randomArray() {
+      let count = 1 * (window.prompt('How many array elements?', 5));
+      if (count <= 0) {
+        alert('Don`t input null or negative number');
+        return false;
+      }
+      if (count == 1) {
+        alert('Input more than one array element');
+        return false;
+      }
+      let m = 1 * (window.prompt('Start array number?', 1));
+      let n = 1 * (window.prompt('End array number?', 20));
+      let array = [];
+      for (let i = m; i < count + 1; ++i) {
+        array.push(Math.round(m + Math.random() * ((n - (m)) + 1)));
+      }
+      localStorage.setItem("file", array);
+      window.confirm(array);
+    }
+
+    // Clear
+    function clear() {
+      localStorage.clear();
+    }
+
   </script>
   <button onclick="bubbleSort()" id='button' class='button'>FIRST SORT</button>
   <button onclick="sort2()" id='button' class='button'>SECOND SORT</button>
   <button onclick="sort3()" id='button' class='button'>THIRD SORT</button>
   <button onclick="savedoc()" id='button' class='button2'>SAVE</button>
+  <button onclick="randomArray()" id='buttonR' class='buttonR'>RANDOM ARRAY</button>
   <h3 id="sort0">Unsorted array: </h3>
   <h3 id="sort1" class="sort1">Sorted array: </h3>
   <div id="text" class='text'><b>Uzdevumu apraksts:</b><br>
     1. Jūs varat izvēlēties 3 dažādas masīvu kārtošanas metodes un noklikšķināt uz atbilstošās pogas.<br>
     2. Pēc tam ievadiet ciparu masīvu, atdalot to ar komatiem, un noklikšķiniet uz 'OK'.<br>
     3. Zem pogām izveidosies divas rindas - nešķirots masīvs un sakārtots masīvs.<br>
-    4. Pēc tam jūs varat saglabāt sakārtoto masīvu un lejuplādēt to '.txt' failā.<br>
-    5. Turklāt jūs varat ielādēt savu teksta failu, kurā ir nešķiroti skaitļi, un kārtot tos, izmantojot dažādas masīva kārtošanas metodes.<br>
+    4. Jūs varat izveidot jebkura garuma masīvu ar nejaušiem skaitļiem jebkurā diapazonā, noklikšķinot uz pogas 'Random Array' un ievadot vajadzīgus skaitļus.<br>
+    5. Pēc tam jūs varat saglabāt sakārtoto masīvu un lejuplādēt to '.txt' failā.<br>
+    6. Turklāt jūs varat ielādēt savu teksta failu, kurā ir nešķiroti skaitļi, un kārtot tos, izmantojot dažādas masīva kārtošanas metodes.
   </div>
   <label for="file-upload" class="custom-file-upload">
     <i class="fa fa-cloud-upload"></i> File Upload
