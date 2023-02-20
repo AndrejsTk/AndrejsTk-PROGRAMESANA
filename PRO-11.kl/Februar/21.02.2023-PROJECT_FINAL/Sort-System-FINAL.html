@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Sort System</title>
+  <link rel="shortcut icon" href="SortSystem.png" type="image.png">
+</head>
+
+<body onload="clear()">
+  <h2>Array Sorting System:<br>&nbsp; Bubble Sort & Insertion Sort & Cocktail Sort</h2>
+  <p id="author">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Made By:<br>
+    Andrew Tkachenko</p>
+  <style>
+    body {
+      background-image: url('https://primelr.ru/wp-content/uploads/2017/03/Light-Green-Abstract-1-Wallpaper-Background-Hd.jpg');
+      background-size: cover;
+    }
+
+    /* Block under buttons */
+    .bckgr {
+      position: absolute;
+      top: 54px;
+      left: 3px;
+      z-index: -1;
+      background: rgb(2, 25, 0);
+      background: linear-gradient(0deg, rgba(2, 25, 0, 1) 0%, rgba(5, 62, 0, 1) 35%, rgba(5, 62, 0, 1) 65%, rgba(0, 23, 0, 1) 100%);
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2), inset 0 -3px 0 rgba(0, 0, 0, 0.22);
+      width: 490px;
+      height: 170px;
+      border-radius: 15px;
+    }
+
+    #author {
+      position: absolute;
+      top: -9px;
+      left: 393px;
+      background-color: #006c2d2b;
+      padding-right: 4px;
+      padding-left: 3px;
+      border-radius: 7px;
+      font-size: 11px;
+      font-weight: bold;
+      color: rgba(0, 0, 0, 0.373);
+      text-shadow: 0 3px 15px #4245435c;
+    }
+
+    /* Title */
+    h2 {
+      color: #2b513d;
+      background: rgb(0, 186, 24);
+      background: linear-gradient(0deg, rgba(0, 186, 24, 1) 0%, rgba(80, 222, 84, 1) 21%, rgba(80, 222, 84, 1) 81%, rgba(0, 186, 24, 1) 100%);
+      padding-right: 4px;
+      padding-left: 3px;
+      padding-bottom: 0px;
+      border-radius: 10px;
+      text-shadow: 0 3px 5px rgba(0, 17, 2, 0.259);
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2), inset 0 -3px 0 rgba(0, 0, 0, 0.22);
+      position: absolute;
+      top: -22px;
+    }
+
+    /* Unsorted&Sorted arrays <p> */
+    .arrays {
+      background: rgb(0, 255, 93);
+      background: linear-gradient(0deg, rgba(0, 255, 93, 1) 0%, rgb(129, 255, 171) 21%, rgba(129, 255, 171) 80%, rgba(0, 255, 106, 1) 100%);
+      background-size: auto auto;
+      background-repeat: no-repeat;
+      padding: 5px;
+      border-radius: 10px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2), inset 0 -3px 0 rgba(0, 0, 0, 0.22);
+      font-family: Monaco monospace;
+      text-shadow: 0 3px 25px #00000079;
+      position: absolute;
+      top: 240px;
+    }
+
+    /* Sort Mtethods Buttons */
+    .buttonOne {
+      position: absolute;
+      cursor: pointer;
+      top: 57px;
+      left: 8px;
+      font-size: 16px;
+      font-family: Monaco monospace;
+      color: rgb(255, 255, 255);
+      text-shadow: 0 3px 12px #101010;
+      width: 150px;
+      height: 50px;
+      background: rgb(0, 255, 115);
+      background: linear-gradient(0deg, rgba(0, 255, 115, 1) 0%, rgba(140, 255, 194, 1) 51%, rgba(0, 255, 102, 1) 100%);
+      border: 0px solid rgb(0, 0, 0);
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2), inset 0 -3px 0 rgba(0, 0, 0, 0.22);
+      border-radius: 10px;
+    }
+
+    .buttonOne::before {
+      content: "FIRST SORT";
+    }
+
+    .buttonOne:hover::before {
+      position: absolute;
+      top: 15px;
+      left: 20px;
+      content: "BUBBLE SORT";
+      text-align: center;
+      font-size: 16px;
+      font-family: Monaco monospace;
+      color: rgb(255, 255, 255);
+      text-shadow: 0 3px 12px #101010;
+      border-radius: 10px;
+    }
+
+    .buttonTwo {
+      position: absolute;
+      cursor: pointer;
+      top: 112.5px;
+      left: 8px;
+      font-size: 16px;
+      font-family: Monaco monospace;
+      color: rgb(255, 255, 255);
+      text-shadow: 0 3px 12px #101010;
+      width: 150px;
+      height: 50px;
+      background: rgb(0, 255, 115);
+      background: linear-gradient(0deg, rgba(0, 255, 115, 1) 0%, rgba(140, 255, 194, 1) 51%, rgba(0, 255, 102, 1) 100%);
+      border: 0px solid rgb(0, 0, 0);
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2), inset 0 -3px 0 rgba(0, 0, 0, 0.22);
+      border-radius: 10px;
+    }
+
+    .buttonTwo::before {
+      content: "SECOND SORT";
+    }
+
+    .buttonTwo:hover::before {
+      position: absolute;
+      top: 15px;
+      left: 11px;
+      content: "INSERTION SORT";
+      text-align: center;
+      font-size: 16px;
+      font-family: Monaco monospace;
+      color: rgb(255, 255, 255);
+      text-shadow: 0 3px 12px #101010;
+      border-radius: 10px;
+    }
+
+    .buttonThree {
+      position: absolute;
+      cursor: pointer;
+      top: 168px;
+      left: 8px;
+      font-size: 16px;
+      font-family: Monaco monospace;
+      color: rgb(255, 255, 255);
+      text-shadow: 0 3px 12px #101010;
+      width: 150px;
+      height: 50px;
+      background: rgb(0, 255, 115);
+      background: linear-gradient(0deg, rgba(0, 255, 115, 1) 0%, rgba(140, 255, 194, 1) 51%, rgba(0, 255, 102, 1) 100%);
+      border: 0px solid rgb(0, 0, 0);
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2), inset 0 -3px 0 rgba(0, 0, 0, 0.22);
+      border-radius: 10px;
+    }
+
+    .buttonThree::before {
+      content: "THIRD SORT";
+    }
+
+    .buttonThree:hover::before {
+      position: absolute;
+      top: 15px;
+      left: 14px;
+      content: "COCKTAIL SORT";
+      text-align: center;
+      font-size: 16px;
+      font-family: Monaco monospace;
+      color: rgb(255, 255, 255);
+      text-shadow: 0 3px 12px #101010;
+      border-radius: 10px;
+    }
+
+    /* Button Save Array */
+    .buttonSave {
+      position: absolute;
+      cursor: pointer;
+      top: 112px;
+      left: 167px;
+      font-size: 16px;
+      font-family: Monaco monospace;
+      color: rgb(255, 255, 255);
+      text-shadow: 0 3px 12px #101010;
+      width: 150px;
+      height: 50px;
+      background: rgb(0, 195, 104);
+      background: linear-gradient(0deg, rgba(0, 195, 104, 1) 0%, rgba(87, 255, 165, 1) 51%, rgba(0, 200, 97, 1) 100%);
+      border: 0px solid rgb(0, 0, 0);
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2), inset 0 -3px 0 rgba(0, 0, 0, 0.22);
+      border-radius: 10px;
+    }
+
+    /* Button Random Array */
+    .buttonRandom {
+      position: absolute;
+      cursor: pointer;
+      top: 56px;
+      left: 167px;
+      font-size: 16px;
+      font-family: Monaco monospace;
+      color: rgb(255, 255, 255);
+      text-shadow: 0 3px 12px #101010;
+      width: 150px;
+      height: 50px;
+      background: rgb(62, 255, 75);
+      background: linear-gradient(0deg, rgba(62, 255, 75, 1) 0%, rgba(140, 255, 142, 1) 51%, rgba(62, 255, 71, 1) 100%);
+      border: 0px solid black;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2), inset 0 -3px 0 rgba(0, 0, 0, 0.22);
+      border-radius: 10px;
+    }
+
+    /* Buttons Hover */
+    .buttonOne:hover {
+      background: rgb(0, 101, 45);
+      background: linear-gradient(0deg, rgba(0, 101, 45, 1) 0%, rgba(76, 153, 112, 1) 51%, rgba(0, 111, 44, 1) 100%);
+    }
+
+    .buttonTwo:hover {
+      background: rgb(0, 101, 45);
+      background: linear-gradient(0deg, rgba(0, 101, 45, 1) 0%, rgba(76, 153, 112, 1) 51%, rgba(0, 111, 44, 1) 100%);
+    }
+
+    .buttonThree:hover {
+      background: rgb(0, 101, 45);
+      background: linear-gradient(0deg, rgba(0, 101, 45, 1) 0%, rgba(76, 153, 112, 1) 51%, rgba(0, 111, 44, 1) 100%);
+    }
+
+    .buttonSave:hover {
+      background: rgb(0, 130, 69);
+      background: linear-gradient(0deg, rgba(0, 130, 69, 1) 0%, rgba(53, 201, 122, 1) 51%, rgba(0, 129, 62, 1) 100%);
+    }
+
+    .buttonRandom:hover {
+      background: rgb(0, 175, 12);
+      background: linear-gradient(0deg, rgba(0, 175, 12, 1) 0%, rgba(75, 255, 77, 1) 51%, rgba(0, 177, 8, 1) 100%);
+    }
+
+    /* Instruction */
+    .text {
+      position: absolute;
+      top: 10px;
+      left: 500px;
+      font-size: 16px;
+      padding-left: 15px;
+      padding-right: 5px;
+      padding-top: 3px;
+      padding-bottom: 5px;
+      width: 825px;
+      height: 205px;
+      background: rgb(152, 255, 124);
+      background: linear-gradient(90deg, rgba(152, 255, 124, 1) 0%, rgb(202, 255, 183) 51%, rgba(161, 255, 135, 1) 100%);
+      border-radius: 15px;
+      box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.2), inset 0 -3px 0 rgba(0, 0, 0, 0.22);
+    }
+
+    .sort1 {
+      text-indent: 20px;
+    }
+
+    /* Upload File */
+    input[type="file"] {
+      display: none;
+    }
+
+    .custom-file-upload {
+      position: absolute;
+      top: 64px;
+      left: 330px;
+      height: 20px;
+      width: 120px;
+      text-align: center;
+      font-weight: bold;
+      color: rgb(0, 65, 12);
+      text-shadow: 0 3px 15px #4c4c4c9b;
+      border: 0px solid rgb(1, 0, 0);
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2), inset 0 -3px 0 rgba(0, 0, 0, 0.22);
+      display: inline-block;
+      padding: 6px 12px;
+      cursor: pointer;
+      background: rgb(130, 255, 119);
+      background: linear-gradient(0deg, rgba(130, 255, 119, 1) 0%, rgba(194, 255, 185, 1) 51%, rgba(139, 255, 121, 1) 100%);
+      border-radius: 5px;
+    }
+
+    .custom-file-upload:hover {
+      background: rgb(89, 255, 75);
+      background: linear-gradient(0deg, rgba(89, 255, 75, 1) 0%, rgba(152, 255, 135, 1) 51%, rgba(85, 255, 58, 1) 100%);
+    }
+
+    /* Format choice */
+    .button-wrap {
+      position: absolute;
+      text-align: center;
+      font-size: 10px;
+      top: 198px;
+      left: 167px;
+      margin-top: -2.5em;
+    }
+
+    .button-label {
+      height: 35px;
+      width: 47px;
+      position: relative;
+      display: inline-block;
+      padding: 0.5px 0.5px;
+      margin: 0.5px;
+      cursor: pointer;
+      color: #292929;
+      border-radius: 0.25em;
+      background: #efefef;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2), inset 0 -3px 0 rgba(0, 0, 0, 0.22);
+      transition: 0.3s;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    .button-label h1 {
+      font-size: 1em;
+      font-family: "Lato", sans-serif;
+    }
+
+    .button-label:hover {
+      background: #d6d6d6;
+      color: #101010;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2), inset 0 -3px 0 rgba(0, 0, 0, 0.32);
+    }
+
+    .button-label:active {
+      transform: translateY(2px);
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2), inset 0px -1px 0 rgba(0, 0, 0, 0.22);
+    }
+
+    #txt-button:checked+.button-label {
+      background: #2ECC71;
+      color: #efefef;
+    }
+
+    #txt-button:checked+.button-label:hover {
+      background: #29b765;
+      color: #e2e2e2;
+    }
+
+    #doc-button:checked+.button-label {
+      background: #2ECC71;
+      color: #efefef;
+    }
+
+    #doc-button:checked+.button-label:hover {
+      background: #2ECC71;
+      color: #e2e2e2;
+    }
+
+    #xls-button:checked+.button-label {
+      background: #2ECC71;
+      color: #efefef;
+    }
+
+    #xls-button:checked+.button-label:hover {
+      background: #2ECC71;
+      color: #e2e2e2;
+    }
+
+    #js-button:checked+.button-label {
+      background: #2ECC71;
+      color: #efefef;
+    }
+
+    #js-button:checked+.button-label:hover {
+      background: #2ECC71;
+      color: #e2e2e2;
+    }
+
+    #json-button:checked+.button-label {
+      background: #2ECC71;
+      color: #efefef;
+    }
+
+    #json-button:checked+.button-label:hover {
+      background: #2ECC71;
+      color: #e2e2e2;
+    }
+
+    #html-button:checked+.button-label {
+      background: #2ECC71;
+      color: #efefef;
+    }
+
+    #html-button:checked+.button-label:hover {
+      background: #2ECC71;
+      color: #e2e2e2;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    /* Increase&Decrease */
+    .switch {
+      position: absolute;
+      top: 142px;
+      left: 400px;
+      width: 160px;
+      height: 50px;
+      text-align: center;
+      font-size: 14px;
+      margin: -30px 0 0 -75px;
+      background: #00df4a;
+      transition: all 0.2s ease;
+      border-radius: 20px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2), inset 0 -3px 0 rgba(0, 0, 0, 0.22);
+    }
+
+    .switch:hover {
+      background: #01b53d;
+    }
+
+    .switch span {
+      border: 5px solid transparent;
+      border-top-color: rgb(255, 255, 255);
+      border-left-color: rgb(255, 255, 255);
+      border-bottom-color: rgb(255, 255, 255);
+      height: 13px;
+      width: 13px;
+      border-radius: 50%;
+      position: absolute;
+      top: -15px;
+      left: 69px;
+      transform: rotate(-45deg);
+      margin: 30px auto;
+    }
+
+    .switch span:before {
+      content: "";
+      position: absolute;
+      top: -8px;
+      left: 80%;
+      border-left: 9px solid rgb(255, 255, 255);
+      border-top: 9px solid transparent;
+      border-bottom: 9px solid transparent;
+      transform: rotate(25deg);
+    }
+
+    input[type=radio] {
+      display: none;
+    }
+
+    .switch label {
+      padding-left: 3px;
+      padding-right: 3px;
+      font-weight: bold;
+      cursor: pointer;
+      color: rgba(0, 0, 0, 0.442);
+      width: 60px;
+      line-height: 50px;
+      transition: all 0.2s ease;
+    }
+
+    label[for=yes] {
+      position: absolute;
+      left: 0px;
+      height: 20px;
+    }
+
+    label[for=no] {
+      position: absolute;
+      right: 0px;
+    }
+
+    #no:checked~.switch {
+      background: #166437;
+    }
+
+    #no:checked~.switch span {
+      transform: rotate(345deg);
+      transition: all 0.8s;
+    }
+
+    #no:checked~.switch span:after {
+      transform: rotate(345deg);
+      transition: all 0.8s;
+    }
+
+    #yes:checked~.switch span {
+      transform: rotate(-20deg);
+      transition: all 0.8s;
+    }
+
+    #yes:checked~.switch span:after {
+      transform: rotate(-20deg);
+      transition: all 0.8s;
+    }
+
+    #yes:checked~.switch label[for=yes] {
+      color: #fff;
+    }
+
+    #no:checked~.switch label[for=no] {
+      color: #fff;
+    }
+
+    .spin {
+      animation: spin 0.5s ease-in-out forwards;
+    }
+
+    @keyframes spin {
+      from {
+        transform: rotate(0);
+      }
+
+      to {
+        transform: rotate(180deg);
+      }
+    }
+  </style>
+
+  <script>
+    let allow = true;
+    let symbol;
+    let arr = [];
+
+    // Bubble Sort
+
+    function bubbleSort(arr) {
+      let isSwapp = false;
+      let a = 0;
+      arr = localStorage.getItem("file");
+      if (arr != null || arr != undefined) {
+        allow = false;
+      }
+      if (allow === true) {
+        arr = window.prompt('BUBBLE SORT: \nInput array`s numbers', '5,1,9,23,6');
+      }
+      arr = arr.match(/(-?\d+(\.\d+)?)/g);
+      if (arr === null) {
+        alert('You should input numbers!');
+        return false;
+      }
+      arr = arr.map(Number);
+      let unsort = document.getElementById('sort0').innerHTML;
+      if (unsort.length < 17) {
+        symbol = '';
+      } else {
+        symbol = '  ||  ';
+      }
+      document.getElementById('sort0').innerHTML += symbol + arr;
+      console.log('Unsorted: ' + arr);
+      let direction = document.querySelector('input[name="rdo"]:checked').value;
+      if (direction == 'increase') {
+        for (var i = 0; i < arr.length; i++) {
+          isSwapped = false;
+          for (var j = 0; j < arr.length; j++) {
+            if (arr[j] > arr[j + 1]) {
+              let temp = arr[j]
+              arr[j] = arr[j + 1];
+              arr[j + 1] = temp;
+              isSwapp = true;
+              console.log('Next step: ' + arr);
+              a++;
+            }
+          }
+          if (isSwapp === false) {
+            break;
+          }
+        }
+      } else if (direction == 'decrease') {
+        for (var i = 0; i < arr.length; i++) {
+          isSwapped = false;
+          for (var j = 0; j < arr.length; j++) {
+            if (arr[j] < arr[j + 1]) {
+              let temp = arr[j]
+              arr[j] = arr[j + 1];
+              arr[j + 1] = temp;
+              isSwapp = true;
+              console.log('Next step: ' + arr);
+              a++;
+            }
+          }
+          if (isSwapp === false) {
+            break;
+          }
+        }
+      }
+      console.log('Sorted: ' + arr);
+      console.log('Moves: ' + a);
+      let sort = document.getElementById('sort1').innerHTML;
+      if (sort.length < 15) {
+        symbol = '';
+      } else {
+        symbol = '  ||  ';
+      }
+      document.getElementById('sort1').innerHTML += symbol + arr;
+      localStorage.removeItem("file");
+      allow = true;
+    }
+
+    // Insertion Sort
+    function sort2() {
+      let a = 0;
+      arr = localStorage.getItem("file");
+      if (arr != null || arr != undefined) {
+        allow = false;
+      }
+      if (allow === true) {
+        arr = window.prompt('INSERTION SORT: \nInput array`s numbers', '23,1,76,15,7');
+      }
+      arr = arr.match(/(-?\d+(\.\d+)?)/g);
+      if (arr === null) {
+        alert('You should input numbers!');
+        return false;
+      }
+      arr = arr.map(Number);
+      let unsort = document.getElementById('sort0').innerHTML;
+      if (unsort.length < 17) {
+        symbol = '';
+      } else {
+        symbol = '  ||  ';
+      }
+      document.getElementById('sort0').innerHTML += symbol + arr;
+      console.log('Unsorted: ' + arr);
+      let direction = document.querySelector('input[name="rdo"]:checked').value;
+      if (direction == 'increase') {
+        for (let i = 0; i < arr.length - 1; i++) {
+          for (let j = i + 1; j < arr.length; j++) {
+            if (arr[j] < arr[i]) {
+              let temp = arr[i];
+              arr[i] = arr[j];
+              arr[j] = temp;
+              a++;
+              console.log('Next step: ' + arr);
+            }
+          }
+        }
+      } else if (direction == 'decrease') {
+        for (let i = 0; i < arr.length - 1; i++) {
+          for (let j = i + 1; j < arr.length; j++) {
+            if (arr[j] > arr[i]) {
+              let temp = arr[i];
+              arr[i] = arr[j];
+              arr[j] = temp;
+              a++;
+              console.log('Next step: ' + arr);
+            }
+          }
+        }
+      }
+      console.log('Sorted: ' + arr);
+      console.log('Moves: ' + a);
+      let sort = document.getElementById('sort1').innerHTML;
+      if (sort.length < 15) {
+        symbol = '';
+      } else {
+        symbol = '  ||  ';
+      }
+      document.getElementById('sort1').innerHTML += symbol + arr;
+      localStorage.removeItem("file");
+      allow = true;
+    }
+
+    // Coctail sort
+
+    function sort3() {
+      arr = localStorage.getItem("file");
+      if (arr != null || arr != undefined) {
+        allow = false;
+      }
+      if (allow === true) {
+        arr = window.prompt('COCKTAIL SORT: \nInput array`s numbers', '6,1,76,12,9');
+      }
+      arr = arr.match(/(-?\d+(\.\d+)?)/g);
+      if (arr === null) {
+        alert('You should input numbers!');
+        return false;
+      }
+      arr = arr.map(Number);
+      let unsort = document.getElementById('sort0').innerHTML;
+      if (unsort.length < 17) {
+        symbol = '';
+      } else {
+        symbol = '  ||  ';
+      }
+      document.getElementById('sort0').innerHTML += symbol + arr;
+      console.log('Unsorted: ' + arr);
+      let start = 0;
+      let len = arr.length;
+      let swapped = true;
+      let a = 0;
+      let direction = document.querySelector('input[name="rdo"]:checked').value;
+      if (direction == 'increase') {
+        while (swapped) {
+          swapped = false;
+          for (let i = start; i < len - 1; i++) {
+            if (arr[i] > arr[i + 1]) {
+              let temp = arr[i];
+              arr[i] = arr[i + 1];
+              arr[i + 1] = temp;
+              swapped = true;
+            }
+          }
+          len--;
+          if (swapped === false) {
+            break;
+          }
+          swapped = false;
+          for (let i = len - 1; i > start; i--) {
+            if (arr[i - 1] > arr[i]) {
+              let temp = arr[i];
+              arr[i] = arr[i - 1];
+              arr[i - 1] = temp;
+              swapped = true;
+            }
+            console.log('Next step: ' + arr);
+            a++;
+          }
+          start++;
+        }
+      } else if (direction == 'decrease') {
+        while (swapped) {
+          swapped = false;
+          for (let i = start; i < len - 1; i++) {
+            if (arr[i] < arr[i + 1]) {
+              let temp = arr[i];
+              arr[i] = arr[i + 1];
+              arr[i + 1] = temp;
+              swapped = true;
+            }
+          }
+          len--;
+          if (swapped === false) {
+            break;
+          }
+          swapped = false;
+          for (let i = len - 1; i > start; i--) {
+            if (arr[i - 1] < arr[i]) {
+              let temp = arr[i];
+              arr[i] = arr[i - 1];
+              arr[i - 1] = temp;
+              swapped = true;
+            }
+            console.log('Next step: ' + arr);
+            a++;
+          }
+          start++;
+        }
+      }
+      console.log('Sorted: ' + arr);
+      console.log('Moves: ' + a);
+      let sort = document.getElementById('sort1').innerHTML;
+      if (sort.length < 15) {
+        symbol = '';
+      } else {
+        symbol = '  ||  ';
+      }
+      document.getElementById('sort1').innerHTML += symbol + arr;
+      localStorage.removeItem("file");
+      allow = true;
+    };
+
+    // Random Array
+    function randomArray() {
+      let count = 1 * (window.prompt('How many array elements?', 5));
+      if (count <= 0) {
+        alert('Don`t input null or negative number');
+        return false;
+      }
+      if (count == 1) {
+        alert('Input more than one array element');
+        return false;
+      }
+      let start = 1 * (window.prompt('Start array number?', 1));
+      let end = 1 * (window.prompt('End array number?', 20));
+      let array = [];
+      if (isNaN(start) || isNaN(end) || isNaN(count)) {
+        alert("Input only numbers!");
+        return false;
+      } else if (start === 0 && end === 0) {
+        alert("Input numbers > 0!");
+        return false;
+      }
+      for (let i = 0; i < count; ++i) {
+        array.push(start + Math.round(Math.random() * ((end - (start)) + 1)));
+      }
+      localStorage.setItem("file", array);
+      window.confirm('Random array: ' + array);
+    }
+
+    // Save document
+    function savedoc() {
+      let fileName = '';
+      let sortedArray = document.getElementById('sort1').innerHTML;
+      let format = document.querySelector('input[name="accept-offers"]:checked').value;
+      switch (format) {
+        case "text/plain":
+          fileName = 'array.txt';
+          break;
+
+        case "text/msword":
+          fileName = 'array.doc';
+          break;
+
+        case "text/vnd.ms-excel":
+          fileName = 'array.xls';
+          break;
+
+        case "text/javascript":
+          fileName = 'array.js';
+          break;
+
+        case "application/json":
+          fileName = 'array.json';
+          break;
+
+        case "text/html":
+          fileName = 'array.html';
+          break;
+
+        default:
+          console.log('Unsupported format: ' + format);
+          return;
+      }
+      if (sortedArray.length != 14) {
+        var blob = new Blob([JSON.stringify(sortedArray)], { type: format });
+        var link = document.createElement("a");
+        link.setAttribute("href", URL.createObjectURL(blob));
+        link.setAttribute("download", fileName);
+        link.click();
+      } else {
+        alert('You should create sorted array.');
+      }
+    }
+
+    // File reader
+    function readFile(input) {
+      let file = input.files[0];
+      let reader = new FileReader();
+      reader.readAsText(file);
+      reader.onload = function () {
+        window.confirm('Input array is: \n' + reader.result.match(/(-?\d+(\.\d+)?)/g).map(Number));
+        localStorage.setItem("file", reader.result.match(/(-?\d+(\.\d+)?)/g).map(Number));
+      };
+      reader.onerror = function () {
+        console.log(reader.error);
+      };
+      input.value = '';
+    }
+
+    // Clear localStorage
+    function clear() {
+      localStorage.clear();
+    }
+
+  </script>
+  <button onclick="bubbleSort()" id='button' class='buttonOne'></button>
+  <button onclick="sort2()" id='button' class='buttonTwo'></button>
+  <button onclick="sort3()" id='button' class='buttonThree'></button>
+  <button onclick="savedoc()" id='button' class='buttonSave'>SAVE</button>
+  <button onclick="randomArray()" id='buttonRandom' class='buttonRandom'>RANDOM ARRAY</button>
+  <div class="container">
+    <div class="button-wrap">
+      <input value="text/plain" class="hidden radio-label" type="radio" name="accept-offers" id="txt-button"
+        checked="checked" />
+      <label class="button-label" for="txt-button">
+        <h1>.txt Notepad</h1>
+      </label>
+      <input value="text/msword" class="hidden radio-label" type="radio" name="accept-offers" id="doc-button" />
+      <label class="button-label" for="doc-button">
+        <h1>.doc Word</h1>
+      </label>
+      <input value="text/vnd.ms-excel" class="hidden radio-label" type="radio" name="accept-offers" id="xls-button" />
+      <label class="button-label" for="xls-button">
+        <h1>.xls <br>Excel</h1>
+      </label>
+      </label>
+      <input value="text/javascript" class="hidden radio-label" type="radio" name="accept-offers" id="js-button" />
+      <label class="button-label" for="js-button">
+        <h1>.js <br>JS</h1>
+      </label>
+      </label>
+      <input value="application/json" class="hidden radio-label" type="radio" name="accept-offers" id="json-button" />
+      <label class="button-label" for="json-button">
+        <h1>.json <br>JSON</h1>
+      </label>
+      <input value="text/html" class="hidden radio-label" type="radio" name="accept-offers" id="html-button" />
+      <label class="button-label" for="html-button">
+        <h1>.html <br>&nbsp;HTML</h1>
+      </label>
+    </div>
+  </div>
+  <div class="arrays">
+    <h3 id="sort0">Unsorted array: </h3>
+    <h3 id="sort1" class="sort1">Sorted array: </h3>
+  </div>
+  <div id="text" class='text'><b>Lietošanas instrukcija:</b><br>
+    <b>1.</b> Jūs varat izvēlēties 3 dažādas masīvu kārtošanas metodes un noklikšķināt uz atbilstošās pogas.<br>
+    <b>2.</b> Pēc tam ievadiet skaitļu masīvu, atdalot to ar jebkuru simbolu, un noklikšķiniet uz 'OK'.<br>
+    <b>3.</b> Zem pogām izveidosies divas rindas - nešķirots masīvs un sakārtots masīvs.<br>
+    <b>4.</b> Jūs varat izveidot jebkura garuma masīvu ar nejaušiem skaitļiem jebkurā diapazonā, noklikšķinot uz pogas
+    'Random Array' un ievadot vajadzīgus skaitļus, un pēc tam izvēlieties šķirošanas metodi.<br>
+    <b>5.</b> Pēc tam Jūs varat saglabāt sakārtoto masīvu jebkurā no sešiem formātiem, izveloties vajadzīgo formātu un
+    nospiežot pogu 'SAVE'.<br>
+    <b>6.</b> Turklāt jūs varat ielādēt savu teksta failu, kurā ir nešķiroti skaitļi, un kārtot tos, izmantojot dažādas
+    masīva kārtošanas metodes.<br>
+    <b>7.</b> Turklāt, izmantojot atbilstošo pogu, Jūs varat izvēlēties kārtošanas secību: augošā vai dilstošā.
+  </div>
+  <label for="file-upload" class="custom-file-upload">
+    <i class="fa fa-cloud-upload"></i> File Upload
+  </label>
+  <input id="file-upload" type="file" onchange="readFile(this)" />
+  <div class="toggle-radio">
+    <input value="increase" type="radio" name="rdo" id="yes" checked>
+    <input value="decrease" type="radio" name="rdo" id="no">
+    <div class="switch">
+      <label for="yes">Increase</label>
+      <label for="no">Decrease</label>
+      <span></span>
+    </div>
+  </div>
+  <div class="bckgr"></div>
+</body>
+<!-- Image sources:
+// Background URL: https://primelr.ru/wp-content/uploads/2017/03/Light-Green-Abstract-1-Wallpaper-Background-Hd.jpg
+// Logo URL: https://pracownicy24.pl/wp-content/uploads/2021/06/Logo-Sort-System.png
+-->
+</html>
